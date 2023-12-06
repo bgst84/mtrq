@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "baugestalt_illustration_of_the_construction_of_a_modernistic_to_1c95539b-016f-4116-b356-93c8cd6db5bc.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "baugestalt_illustration_of_the_construction_of_a_modernistic_to_1c95539b-016f-4116-b356-93c8cd6db5bc 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "baugestalt_illustration_of_the_construction_of_a_modernistic_to_1c95539b-016f-4116-b356-93c8cd6db5bc 2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

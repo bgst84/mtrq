@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "baugestalt_a_harvester_in_a_corn_field_5bc17ee5-e118-4188-b6c1-63f562128ae9.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "baugestalt_a_harvester_in_a_corn_field_5bc17ee5-e118-4188-b6c1-63f562128ae9 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "baugestalt_a_harvester_in_a_corn_field_5bc17ee5-e118-4188-b6c1-63f562128ae9 2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

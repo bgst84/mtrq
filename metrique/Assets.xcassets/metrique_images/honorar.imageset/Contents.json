@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "baugestalt_a_graphic_illustration_of_an_architect_working_at_dr_87e5ec1b-cd64-42d8-ad5b-7c141a92934c.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "baugestalt_a_graphic_illustration_of_an_architect_working_at_dr_87e5ec1b-cd64-42d8-ad5b-7c141a92934c 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "baugestalt_a_graphic_illustration_of_an_architect_working_at_dr_87e5ec1b-cd64-42d8-ad5b-7c141a92934c 2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

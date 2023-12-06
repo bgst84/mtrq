@@ -1,0 +1,23 @@
+{
+  "sourceLanguage" : "de",
+  "strings" : {
+    "feeView_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Honorarberechnung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fee"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
