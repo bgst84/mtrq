@@ -51,130 +51,139 @@ struct returnView: View {
     
     var body: some View {
         
-        ScrollView{
+        VStack{
             
-            VStack(){
-                
-                Image("return")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 300)
-                    .clipped()
-            }
-            .frame(maxWidth: .infinity)
-      
-            
-            VStack(alignment: .leading) {
-                
-                Group {
+            ScrollView{
+                VStack{
                     
-                    Spacer()
-                        .frame(height: groupSpacer)
-                    
-                    Text("Bruttorendite Mietobjekt")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
-                    Spacer()
-                        .frame(height: 5)
-                    
-                    Text("Dieses Werkzeugt errechnet die zu erwartende Brutto-Rendite eines Bauprojekts bei einer Vermietung der gebauten Flächen.")
+                    Image("return")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 300)
+                        .clipped()
                 }
-
-                dashSpaceDiv()
+                .frame(maxWidth: .infinity)
                 
-                Group{
-                    Text("HNF Hauptnutzfläche vermietbar")
-                        .fontWeight(.bold)
-                    
-                    TextField("HNF", text: $NGF)
-                        .focused($isFocused)
-                        .keyboardType(.decimalPad)
-                        .padding(5)
-                        .background(Color("textField"))
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                }
                 
-                Group{
-                    Text("Mietzins pro m2 und Jahr")
-                        .fontWeight(.bold)
+                VStack(alignment: .leading) {
                     
-                    TextField("chf/m2a", text: $chfm2a)
-                        .focused($isFocused)
-                        .keyboardType(.decimalPad)
-                        .padding(5)
-                        .background(Color("textField"))
-                    
-                    
-                    HStack{
+                    Group {
                         
-                        Text("kantonaler Durchschnitt 2021:")
+                        Spacer()
+                            .frame(height: groupSpacer)
                         
-                        Picker("Kanton auswählen", selection: $selectedOption) {
-                            ForEach(Array(kantoneMietzins.keys), id: \.self) { canton in
-                                Text(canton)
-                            }
-                        }
-                        .onChange(of: selectedOption) { newValue in
-                            chfm2a = kantoneMietzins[newValue] ?? ""
-                        }
+                        Text("Bruttorendite Mietobjekt")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                            .frame(height: 5)
+                        
+                        Text("Dieses Werkzeugt errechnet die zu erwartende Brutto-Rendite eines Bauprojekts bei einer Vermietung der gebauten Flächen.")
                     }
                     
+                    dashSpaceDiv()
                     
-                    Spacer()
-                        .frame(height: groupSpacer)
+                    Group{
+                        Text("HNF Hauptnutzfläche vermietbar")
+                            .fontWeight(.bold)
+                        
+                        TextField("HNF", text: $NGF)
+                            .focused($isFocused)
+                            .keyboardType(.decimalPad)
+                            .padding(5)
+                            .background(Color("textField"))
+                        
+                        Spacer()
+                            .frame(height: groupSpacer)
+                    }
+                    
+                    Group{
+                        Text("Mietzins pro m2 und Jahr")
+                            .fontWeight(.bold)
+                        
+                        TextField("chf/m2a", text: $chfm2a)
+                            .focused($isFocused)
+                            .keyboardType(.decimalPad)
+                            .padding(5)
+                            .background(Color("textField"))
+                        
+                        
+                        HStack{
+                            
+                            Text("kantonaler Durchschnitt 2021:")
+                            
+                            Picker("Kanton auswählen", selection: $selectedOption) {
+                                ForEach(Array(kantoneMietzins.keys), id: \.self) { canton in
+                                    Text(canton)
+                                }
+                            }
+                            .onChange(of: selectedOption) { newValue in
+                                chfm2a = kantoneMietzins[newValue] ?? ""
+                            }
+                        }
+                        
+                        
+                        Spacer()
+                            .frame(height: groupSpacer)
+                    }
+                    
+                    Group{
+                        Text("Ertrag Brutto (chf)")
+                            .fontWeight(.bold)
+                        
+                        Text(formatNumber(Double(totalReturn)!))
+                        
+                        Spacer()
+                            .frame(height: groupSpacer)
+                    }
+                    
+                    Group{
+                        Text("Erstellungskosten (chf)")
+                            .fontWeight(.bold)
+                        
+                        TextField("Erstellungskosten", text: $buildingCost)
+                            .focused($isFocused)
+                            .keyboardType(.decimalPad)
+                            .padding(5)
+                            .background(Color("textField"))
+                        
+                        Spacer()
+                            .frame(height: groupSpacer)
+                    }
+                    
+                    Group{
+                        Text("Landwert (chf)")
+                            .fontWeight(.bold)
+                        
+                        TextField("Landwert", text: $landCost)
+                            .focused($isFocused)
+                            .keyboardType(.decimalPad)
+                            .padding(5)
+                            .background(Color("textField"))
+                    }
                 }
+                .padding(25)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Group{
-                    Text("Ertrag Brutto (chf)")
-                        .fontWeight(.bold)
-                    
-                    Text(formatNumber(Double(totalReturn)!))
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
+            }
+            
+            .onTapGesture {
+                if (isFocused == true) {
+                    isFocused = false
                 }
-                
-                Group{
-                    Text("Erstellungskosten (chf)")
-                        .fontWeight(.bold)
-                    
-                    TextField("Erstellungskosten", text: $buildingCost)
-                        .focused($isFocused)
-                        .keyboardType(.decimalPad)
-                        .padding(5)
-                        .background(Color("textField"))
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                }
-                
-                Group{
-                    Text("Landwert (chf)")
-                        .fontWeight(.bold)
-                    
-                    TextField("Landwert", text: $landCost)
-                        .focused($isFocused)
-                        .keyboardType(.decimalPad)
-                        .padding(5)
-                        .background(Color("textField"))
-                }
-                
-                dashSpaceDiv()
-                
+            }
+            
+            Group{
                 GroupBox{
                     
                     VStack(alignment: .leading){
                         Text("Anlagekosten (chf)")
                             .fontWeight(.bold)
-                            .font(.title2)
                         
                         HStack{
                             
                             Text(formatNumber(Double(totalCost)!))
-                                .font(.title2)
                             
                             Button{
                                 UIPasteboard.general.string = formatNumber(Double(totalCost)!)
@@ -188,53 +197,40 @@ struct returnView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .groupBoxStyle(subResultGroupBox())
-              
-                        Spacer()
-                            .frame(height: groupSpacer)
+                .padding([.leading, .trailing], 20)
+
+                
+                Spacer()
+                    .frame(height: groupSpacer)
+                
+                
+                GroupBox{
+                    VStack(alignment: .leading){
+                        Text("Bruttorendite (%)")
+                            .fontWeight(.bold)
                         
-                     
-                    GroupBox{
-                        VStack(alignment: .leading){
-                            Text("Bruttorendite (%)")
-                                .fontWeight(.bold)
-                                .font(.title2)
+                        HStack{
+                            Text(formatNumber(Double(bruttoReturn) ?? 0))
                             
-                            HStack{
-                                Text(formatNumber(Double(bruttoReturn) ?? 0))
-                                    .font(.title2)
-                                
-                                Button{
-                                    UIPasteboard.general.string = formatNumber(Double(bruttoReturn)!)
-                                } label: {
-                                    Image(systemName: "doc.on.doc")
-                                        .foregroundColor(Color("textColor"))
-                                }
+                            Button{
+                                UIPasteboard.general.string = formatNumber(Double(bruttoReturn)!)
+                            } label: {
+                                Image(systemName: "doc.on.doc")
+                                    .foregroundColor(Color("textColor"))
                             }
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .groupBoxStyle(resultGroupBox())
-                
-              //  dashSpaceDiv()
-               // Button("share fee", systemImage: "square.and.arrow.up"){
-             //   }
-                
-            }//end VStack
-            .padding(25)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-        }
-        
-        .onTapGesture {
-            if (isFocused == true) {
-                isFocused = false
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .groupBoxStyle(resultGroupBox())
+                .padding([.leading, .trailing], 20)
+
             }
         }
         
-        
-        
     }
 }
+
 
 struct returnView_Previews: PreviewProvider {
     static var previews: some View {
@@ -242,6 +238,3 @@ struct returnView_Previews: PreviewProvider {
     }
 }
 
-func updatechfm2a(){
-    
-}

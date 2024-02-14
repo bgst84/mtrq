@@ -77,192 +77,197 @@ struct feeView: View {
     var body: some View {
         
         NavigationView{
-            ScrollView{
-                
-                VStack{
-                    Image("honorar")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 300)
-                        .clipped()
-                }
-                .frame(maxWidth: .infinity)
-                
-                
-                VStack(alignment: .leading) {
+            
+            VStack{
+                ScrollView{
                     
-                    Group {
-                        
-                        Text("Honorarberechnung")
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                            .frame(height: 5)
-                        
-                        Text("Dieses Werkzeug dient der Berechnung des Architektenhonorars. Es kalkuliert den voraussichtlich benötigten Zeitaufwand anhand der aufwandbestimmenden Baukosten und kalkuliert das daraus resultierende Honorar.")
-                        
+                    VStack{
+                        Image("honorar")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 300)
+                            .clipped()
                     }
+                    .frame(maxWidth: .infinity)
                     
-                    dashSpaceDiv()
                     
-                    Group{
+                    VStack(alignment: .leading) {
                         
-                        Text("Basisfaktor p")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        Text("Faktoren Z1 und Z2")
-                            .fontWeight(.bold)
-                        
-                        Text("statistische Faktoren")
-                        
-                        HStack{
-                            Text("Jahr:")
-                            Picker(selection: $selectedOption, label: Text("Picker")) {
-                                Text("2016").tag(1)
-                                Text("2017").tag(2)
-                                Text("2018").tag(3)
-                            }
+                        Group {
+                            
+                            Text("Honorarberechnung")
+                                .font(.title)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                                .frame(height: 5)
+                            
+                            Text("Dieses Werkzeug dient der Berechnung des Architektenhonorars. Es kalkuliert den voraussichtlich benötigten Zeitaufwand anhand der aufwandbestimmenden Baukosten und kalkuliert das daraus resultierende Honorar.")
+                            
                         }
                         
-                        Text("Z1: " + Z1)
-                            .padding(.bottom, 5.0)
-                            .foregroundColor(Color("resultTextColor"))
+                        dashSpaceDiv()
                         
-                        Text("Z2: " + Z2)
-                            .padding(.bottom, 5.0)
-                            .foregroundColor(Color("resultTextColor"))
+                        Group{
+                            
+                            Text("Basisfaktor p")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            Text("Faktoren Z1 und Z2")
+                                .fontWeight(.bold)
+                            
+                            Text("statistische Faktoren")
+                            
+                            HStack{
+                                Text("Jahr:")
+                                Picker(selection: $selectedOption, label: Text("Picker")) {
+                                    Text("2016").tag(1)
+                                    Text("2017").tag(2)
+                                    Text("2018").tag(3)
+                                }
+                            }
+                            
+                            Text("Z1: " + Z1)
+                                .padding(.bottom, 5.0)
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            Text("Z2: " + Z2)
+                                .padding(.bottom, 5.0)
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                        }
                         
-                        Spacer()
-                            .frame(height: groupSpacer)
+                        
+                        
+                        Group {
+                            Text("Aufwandbestimmende Baukosten B (chf)")
+                                .fontWeight(.bold)
+                            
+                            Text("Baukosten ohne Honorare, Nebenkosten, ect.")
+                            
+                            TextField("Building Cost", text: $buildingCost)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            // Button("OK"){
+                            //     isFocused = false
+                            //}
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                        }
+                        
+                        Group {
+                            Text("Basisfaktor p")
+                                .fontWeight(.bold)
+                                .padding(.vertical, 5.0)
+                            
+                            Text(basicFactor)
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            
+                        }
+                        
+                        dashSpaceDiv()
+                        
+                        Group {
+                            
+                            Text("Modifikatoren")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            Text("Schwierigkeitsgrad n")
+                                .fontWeight(.bold)
+                                .padding(.vertical, 5.0)
+                            
+                            TextField("Schwierigkeitsgrad", text: $difficultyDegree)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            Spacer()
+                                .frame(height: groupSpacer)
+                        }
+                        
+                        
+                        Group {
+                            Text("Leistungsanteil q")
+                                .fontWeight(.bold)
+                                .padding(.vertical, 5.0)
+                            
+                            TextField("Leistungsanteil", text: $deliverableProportion)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                        }
+                        
+                        
+                        Group {
+                            
+                            Text("Anpassungsfaktor q")
+                                .fontWeight(.bold)
+                                .padding(.vertical, 5.0)
+                            
+                            TextField("Anpassungsfaktor", text: $adjustmentFactor)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            Spacer()
+                                .frame(height: groupSpacer)
+                        }
+                        
+                        
+                        Group {
+                            
+                            Text("Stundensatz h (chf/h)")
+                                .fontWeight(.bold)
+                                .padding(.vertical, 5.0)
+                            
+                            TextField("Stundensatz", text: $hourlyRate)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            
+                        }
+                                                
                     }
                     
+                    .padding(25)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    
-                    Group {
-                        Text("Aufwandbestimmende Baukosten B (chf)")
-                            .fontWeight(.bold)
-                        
-                        Text("Baukosten ohne Honorare, Nebenkosten, ect.")
-                        
-                        TextField("Building Cost", text: $buildingCost)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
-                        // Button("OK"){
-                        //     isFocused = false
-                        //}
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
+                }.onTapGesture {
+                    changeOrientation(to: .landscapeLeft)
+                    if (isFocused == true) {
+                        isFocused = false
                     }
-                    
-                    Group {
-                        Text("Basisfaktor p")
-                            .fontWeight(.bold)
-                            .padding(.vertical, 5.0)
-                        
-                        Text(basicFactor)
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        
-                    }
-                    
-                    dashSpaceDiv()
-                    
-                    Group {
-                        
-                        Text("Modifikatoren")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        Text("Schwierigkeitsgrad n")
-                            .fontWeight(.bold)
-                            .padding(.vertical, 5.0)
-                        
-                        TextField("Schwierigkeitsgrad", text: $difficultyDegree)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
-                        Spacer()
-                            .frame(height: groupSpacer)
-                    }
-                    
-                    
-                    Group {
-                        Text("Leistungsanteil q")
-                            .fontWeight(.bold)
-                            .padding(.vertical, 5.0)
-                        
-                        TextField("Leistungsanteil", text: $deliverableProportion)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                    }
-                    
-                    
-                    Group {
-                        
-                        Text("Anpassungsfaktor q")
-                            .fontWeight(.bold)
-                            .padding(.vertical, 5.0)
-                        
-                        TextField("Anpassungsfaktor", text: $adjustmentFactor)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
-                        Spacer()
-                            .frame(height: groupSpacer)
-                    }
-                    
-                    
-                    Group {
-                        
-                        Text("Stundensatz h (chf/h)")
-                            .fontWeight(.bold)
-                            .padding(.vertical, 5.0)
-                        
-                        TextField("Stundensatz", text: $hourlyRate)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
-                        
-                    }
-                    
-                    dashSpaceDiv()
-                    
-                    Text("Honorar")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                    
+                }
+                
+                
+                Group{
                     GroupBox(){
                         VStack(alignment: .leading) {
                             
                             Text("Total Stunden (h)")
                                 .fontWeight(.bold)
-                                .font(.title2)
                             
                             HStack{
                                 Text(formatNumber(totalHours))
-                                    .font(.title2)
                                     .textSelection(.enabled)
                                 
                                 Button{
@@ -277,20 +282,17 @@ struct feeView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .groupBoxStyle(subResultGroupBox())
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
+                    .padding([.leading, .trailing], 20)
+
                     
                     GroupBox{
                         VStack(alignment: .leading) {
                             
                             Text("Total Honorar (chf)")
                                 .fontWeight(.bold)
-                                .font(.title2)
                             
                             HStack{
                                 Text(formatNumber(totalFee))
-                                    .font(.title2)
                                     .textSelection(.enabled)
                                 
                                 Button{
@@ -305,6 +307,7 @@ struct feeView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .groupBoxStyle(resultGroupBox())
+                    .padding([.leading, .trailing], 20)
 
                     
                     Button("Honorar nach Phasen"){
@@ -316,19 +319,8 @@ struct feeView: View {
                     .sheet(isPresented: $showFeePercentageView) {
                         feePercentageView(buildingProject: buildingProject, isPresented: $showFeePercentageView)
                     }
-                    
-                }
-                
-                .padding(25)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
-            }.onTapGesture {
-                changeOrientation(to: .landscapeLeft)
-                if (isFocused == true) {
-                    isFocused = false
                 }
             }
-            
         }
     }
 }
