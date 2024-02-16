@@ -47,7 +47,7 @@ struct resultGroupBox: GroupBoxStyle {
             .frame(maxWidth: .infinity)
             .padding(10)
             //.background(RoundedRectangle(cornerRadius: 0).fill(Color(.resultField)))
-            .border(Color.black)
+            .border(Color("lineColor"))
     }
 }
 
@@ -57,6 +57,6 @@ struct subResultGroupBox: GroupBoxStyle {
             .frame(maxWidth: .infinity)
             .padding(10)
             //.background(RoundedRectangle(cornerRadius: 0).fill(Color(.subResultField)))
-            .border(Color.black)
+            .border(Color("lineColor"))
     }
 }

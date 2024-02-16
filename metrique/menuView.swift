@@ -10,7 +10,7 @@ import SwiftUI
 struct menuView: View {
   
     @StateObject var buildingProject = BuildingProject()
-
+    
     var body: some View {
         
         NavigationView{
@@ -167,5 +167,7 @@ struct menuView_Previews: PreviewProvider {
         
     static var previews: some View {
         menuView()
+            .environmentObject(GlobalSettings())
+
     }
 }

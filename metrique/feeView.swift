@@ -3,6 +3,8 @@ import SwiftUI
 struct feeView: View {
     
     @ObservedObject var buildingProject: BuildingProject
+    @EnvironmentObject var settings: GlobalSettings
+
     
     @State private var buildingCost: String = "1000000"
     @State private var difficultyDegree: String = "1"
@@ -13,7 +15,6 @@ struct feeView: View {
     
     @FocusState var isFocused: Bool // für Ausblenden des Keyboards
     @State private var showFeePercentageView = false //für Sheetview Honorar nach Phasen
-    
     
     private var totalHours: Double {
         let B = Double(buildingCost) ?? 0
@@ -67,7 +68,7 @@ struct feeView: View {
     private var totalFee: Double { //geteilt mit feePercentageView
         
         let totalHoursTemp: Double = totalHours
-        let hourlyRateTemp: Double = Double(hourlyRate) ?? 0
+        let hourlyRateTemp: Double = Double(settings.hourlyRate) ?? 0
         let totalFeeTemp: Double = totalHoursTemp * hourlyRateTemp
         
         return totalFeeTemp
@@ -238,7 +239,7 @@ struct feeView: View {
                                 .fontWeight(.bold)
                                 .padding(.vertical, 5.0)
                             
-                            TextField("Stundensatz", text: $hourlyRate)
+                            TextField("Stundensatz", text: $settings.hourlyRate)
                                 .focused($isFocused)
                                 .keyboardType(.decimalPad)
                                 .padding(5)
@@ -330,5 +331,7 @@ struct feeView_Previews: PreviewProvider {
     static var previews: some View {
         
         feeView(buildingProject: BuildingProject())
+            .environmentObject(GlobalSettings())
+
     }
 }

@@ -51,6 +51,9 @@
         }
       }
     },
+    "Abschluss" : {
+      "comment" : "Phase name for completion"
+    },
     "Abschreibungen (%)" : {
       "localizations" : {
         "en" : {
@@ -293,6 +296,15 @@
         }
       }
     },
+    "Ausführung" : {
+      "comment" : "Phase name for execution"
+    },
+    "Ausführungspläne" : {
+      "comment" : "Phase description for implementation plans"
+    },
+    "Ausführungsplanung" : {
+      "comment" : "Phase name for execution planning"
+    },
     "Ausnützungsziffer" : {
       "localizations" : {
         "en" : {
@@ -358,6 +370,15 @@
           }
         }
       }
+    },
+    "Ausschreibung" : {
+      "comment" : "Phase name for tendering"
+    },
+    "Ausschreibung und Vergabe" : {
+      "comment" : "Phase description for tender and awarding"
+    },
+    "Ausschreibungspläne" : {
+      "comment" : "Phase description for tender plans"
     },
     "Basisfaktor p" : {
       "localizations" : {
@@ -462,6 +483,12 @@
           }
         }
       }
+    },
+    "Bauleitung & Kostenkontrolle" : {
+      "comment" : "Phase description for construction management & cost control"
+    },
+    "Bauprojekt" : {
+      "comment" : "Phase description for construction project\n   Phase name for construction project"
     },
     "Baurecht" : {
       "localizations" : {
@@ -640,7 +667,20 @@
       }
     },
     "Beschrieb" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "description"
+          }
+        }
+      }
+    },
+    "Bewilligung" : {
+      "comment" : "Phase name for approval"
+    },
+    "Bewilligungsverfahren" : {
+      "comment" : "Phase description for approval process"
     },
     "Bewirtschaftung (%)" : {
       "localizations" : {
@@ -753,14 +793,7 @@
       }
     },
     "chf/h" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
+
     },
     "chf/m2a" : {
 
@@ -786,6 +819,9 @@
           }
         }
       }
+    },
+    "Detailstudien" : {
+      "comment" : "Phase description for detailed studies"
     },
     "Diese App wird laufend weiterentwickelt und um Funktionen ergänzt." : {
       "localizations" : {
@@ -874,6 +910,9 @@
           }
         }
       }
+    },
+    "Dokumentation Bauwerk" : {
+      "comment" : "Phase description for documentation of the building"
     },
     "Erstellungskosten" : {
       "localizations" : {
@@ -1006,6 +1045,9 @@
           }
         }
       }
+    },
+    "gestalterische Bauleitung" : {
+      "comment" : "Phase description for creative construction management"
     },
     "Grösse der zu bebauenden Parzelle." : {
       "localizations" : {
@@ -1180,6 +1222,9 @@
           }
         }
       }
+    },
+    "Inbetriebnahme" : {
+      "comment" : "Phase description for commissioning"
     },
     "Jahr:" : {
       "localizations" : {
@@ -1389,6 +1434,9 @@
         }
       }
     },
+    "Kostenvoranschlag" : {
+      "comment" : "Phase description for cost estimate"
+    },
     "Landpreis" : {
       "localizations" : {
         "en" : {
@@ -1542,6 +1590,9 @@
           }
         }
       }
+    },
+    "Leitung Garantiearbeiten" : {
+      "comment" : "Phase description for management of warranty works"
     },
     "mail@metrique.app" : {
 
@@ -1867,6 +1918,9 @@
         }
       }
     },
+    "Schlussrechnung" : {
+      "comment" : "Phase description for final invoice"
+    },
     "Schwierigkeitsgrad" : {
       "localizations" : {
         "en" : {
@@ -1933,15 +1987,8 @@
         }
       }
     },
-    "Stunden" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "hours"
-          }
-        }
-      }
+    "Studium der Lösungsmöglichkeiten und Grobkostenschätzung" : {
+      "comment" : "Phase description for study of solution options and rough cost estimate"
     },
     "Stundensatz" : {
       "localizations" : {
@@ -2150,6 +2197,23 @@
           }
         }
       }
+    },
+    "Vorprojekt" : {
+      "comment" : "Phase name for preliminary project",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "preliminary project"
+          }
+        }
+      }
+    },
+    "Vorprojekt und Kostenschätzung" : {
+      "comment" : "Phase description for preliminary project and cost estimation"
+    },
+    "Werkverträge" : {
+      "comment" : "Phase description for work contracts"
     },
     "Zurück" : {
       "localizations" : {

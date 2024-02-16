@@ -10,10 +10,15 @@ import SwiftUI
 @main
 struct metriqueApp: App {
     
+    
+    var globalSettings = GlobalSettings()
+
+    
     var body: some Scene {
         WindowGroup {
-
+            
             menuView()
+                .environmentObject(globalSettings)
         }
     }
 }

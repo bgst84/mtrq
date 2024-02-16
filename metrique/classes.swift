@@ -24,3 +24,7 @@ struct FeePhase: Identifiable, Hashable {
     var phaseHourlyRate = 0.0
     
 }
+
+class GlobalSettings: ObservableObject {
+    @Published var hourlyRate: String = "130"
+}
