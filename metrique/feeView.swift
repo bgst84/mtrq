@@ -2,9 +2,9 @@ import SwiftUI
 
 struct feeView: View {
     
-    @ObservedObject var buildingProject: BuildingProject
-    @EnvironmentObject var settings: GlobalSettings
-
+    @EnvironmentObject var globalSettings: GlobalSettings
+    @EnvironmentObject var buildingProject: BuildingProject
+    
     
     @State private var buildingCost: String = "1000000"
     @State private var difficultyDegree: String = "1"
@@ -14,7 +14,7 @@ struct feeView: View {
     @State var selectedOption = 1 //picker selected option
     
     @FocusState var isFocused: Bool // für Ausblenden des Keyboards
-    @State private var showFeePercentageView = false //für Sheetview Honorar nach Phasen
+    @State var showFeePercentageView = false //für Sheetview Honorar nach Phasen
     
     private var totalHours: Double {
         let B = Double(buildingCost) ?? 0
@@ -24,7 +24,6 @@ struct feeView: View {
         let r = Double(adjustmentFactor) ?? 0
         
         let totalHoursTemp = B * (p / 100) * n * (q / 100) * r
-        //buildingProject.publicTotalHours = totalHoursTemp
         
         return totalHoursTemp
     }
@@ -68,7 +67,7 @@ struct feeView: View {
     private var totalFee: Double { //geteilt mit feePercentageView
         
         let totalHoursTemp: Double = totalHours
-        let hourlyRateTemp: Double = Double(settings.hourlyRate) ?? 0
+        let hourlyRateTemp: Double = Double(globalSettings.hourlyRate) ?? 0
         let totalFeeTemp: Double = totalHoursTemp * hourlyRateTemp
         
         return totalFeeTemp
@@ -239,14 +238,14 @@ struct feeView: View {
                                 .fontWeight(.bold)
                                 .padding(.vertical, 5.0)
                             
-                            TextField("Stundensatz", text: $settings.hourlyRate)
+                            TextField("Stundensatz", text: $globalSettings.hourlyRate)
                                 .focused($isFocused)
                                 .keyboardType(.decimalPad)
                                 .padding(5)
                                 .background(Color("textField"))
                             
                         }
-                                                
+                        
                     }
                     
                     .padding(25)
@@ -258,7 +257,6 @@ struct feeView: View {
                         isFocused = false
                     }
                 }
-                
                 
                 Group{
                     GroupBox(){
@@ -284,7 +282,7 @@ struct feeView: View {
                     }
                     .groupBoxStyle(subResultGroupBox())
                     .padding([.leading, .trailing], 20)
-
+                    
                     
                     GroupBox{
                         VStack(alignment: .leading) {
@@ -309,17 +307,17 @@ struct feeView: View {
                     }
                     .groupBoxStyle(resultGroupBox())
                     .padding([.leading, .trailing], 20)
-
                     
                     Button("Honorar nach Phasen"){
-                        buildingProject.publicTotalHours = totalHours
-                        buildingProject.publicTotalFee = totalFee
-                        buildingProject.publicHourlyRate = Double(hourlyRate) ?? 0.0
+                        buildingProject.totalHours = totalHours
+                        buildingProject.totalFee = totalFee
+                        buildingProject.hourlyRate = Double(hourlyRate) ?? 0.0
                         showFeePercentageView = true
                     }
                     .sheet(isPresented: $showFeePercentageView) {
-                        feePercentageView(buildingProject: buildingProject, isPresented: $showFeePercentageView)
+                        feePercentageView(isPresented: $showFeePercentageView)
                     }
+                
                 }
             }
         }
@@ -330,8 +328,8 @@ struct feeView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        feeView(buildingProject: BuildingProject())
+        feeView()
             .environmentObject(GlobalSettings())
-
+            .environmentObject(BuildingProject())
     }
 }

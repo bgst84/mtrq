@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct menuView: View {
-  
-    @StateObject var buildingProject = BuildingProject()
-    
+      
     var body: some View {
         
         NavigationView{
@@ -54,7 +52,7 @@ struct menuView: View {
                     
                     
                     
-                    NavigationLink(destination: feeView(buildingProject: buildingProject)){
+                    NavigationLink(destination: feeView()){
                         HStack(spacing: 25.0){
                             Image("honorar")
                                 .resizable()
@@ -168,6 +166,6 @@ struct menuView_Previews: PreviewProvider {
     static var previews: some View {
         menuView()
             .environmentObject(GlobalSettings())
-
+            .environmentObject(BuildingProject())
     }
 }

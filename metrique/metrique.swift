@@ -12,13 +12,14 @@ struct metriqueApp: App {
     
     
     var globalSettings = GlobalSettings()
-
+    var buildingProject = BuildingProject()
     
     var body: some Scene {
         WindowGroup {
             
             menuView()
                 .environmentObject(globalSettings)
+                .environmentObject(buildingProject)
         }
     }
 }

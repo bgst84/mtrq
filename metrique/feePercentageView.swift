@@ -2,10 +2,10 @@ import SwiftUI
 
 struct feePercentageView: View {
     
-    @ObservedObject var buildingProject: BuildingProject
     @Binding var isPresented: Bool
-    @EnvironmentObject var settings: GlobalSettings
 
+    @EnvironmentObject var globalSettings: GlobalSettings
+    @EnvironmentObject var buildingProject: BuildingProject
     
     // Array of all fee phase
     
@@ -79,7 +79,7 @@ struct feePercentageView: View {
                             .gridColumnAlignment(.trailing)
                         //Text("Stunden")
                             .gridColumnAlignment(.trailing)
-                        Text("chf/h")
+                        //Text("chf/h")
                             .gridColumnAlignment(.trailing)
                         Text("Honorar")
                             .gridColumnAlignment(.trailing)
@@ -98,9 +98,9 @@ struct feePercentageView: View {
                                     .lineLimit(nil)
                                     .fixedSize(horizontal: false, vertical: true)
                                 Text(String(feePhase.phasePercentage))
-                                //Text(String(formatNumber2(feePhase.phasePercentage * buildingProject.publicTotalHours / 100)))
-                                Text(settings.hourlyRate)
-                                Text(String(formatNumber2(feePhase.phasePercentage * buildingProject.publicTotalFee / 100)))
+                                //Text(String(formatNumber2(feePhase.phasePercentage * buildingProject.totalHours / 100)))
+                                //Text(globalSettings.hourlyRate)
+                                Text(String(formatNumber2(feePhase.phasePercentage * buildingProject.totalFee / 100)))
                             }
                         }
                     }
@@ -125,8 +125,8 @@ struct feePercentageView_Preview: PreviewProvider {
     @State static var isPresented = false
 
     static var previews: some View {
-        feePercentageView(buildingProject: BuildingProject(), isPresented: $isPresented)
+        feePercentageView(isPresented: $isPresented)
             .environmentObject(GlobalSettings())
-
+            .environmentObject(BuildingProject())
     }
 }

@@ -9,9 +9,13 @@ import Foundation
 import SwiftUI
 
 class BuildingProject: ObservableObject {
-    @Published var publicTotalFee = 0.0
-    @Published var publicTotalHours = 0.0
-    @Published var publicHourlyRate = 0.0
+    @Published var totalFee = 0.0
+    @Published var totalHours = 0.0
+    @Published var hourlyRate = 130.0
+}
+
+class GlobalSettings: ObservableObject {
+    @Published var hourlyRate: String = "130"
 }
 
 struct FeePhase: Identifiable, Hashable {
@@ -23,8 +27,4 @@ struct FeePhase: Identifiable, Hashable {
     var phaseFee = 0.0
     var phaseHourlyRate = 0.0
     
-}
-
-class GlobalSettings: ObservableObject {
-    @Published var hourlyRate: String = "130"
 }
