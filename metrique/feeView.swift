@@ -300,6 +300,20 @@ struct feeView: View {
                                     Image(systemName: "doc.on.doc")
                                         .foregroundColor(Color("textColor"))
                                 }
+                                
+                                Spacer()
+                                
+                                Button("Honorar nach Phasen"){
+                                    buildingProject.totalHours = totalHours
+                                    buildingProject.totalFee = totalFee
+                                    buildingProject.hourlyRate = Double(hourlyRate) ?? 0.0
+                                    showFeePercentageView = true
+                                }
+                                .sheet(isPresented: $showFeePercentageView) {
+                                    feePercentageView(isPresented: $showFeePercentageView)
+                                }
+                                
+                                
                             }
                             
                         }
@@ -308,15 +322,6 @@ struct feeView: View {
                     .groupBoxStyle(resultGroupBox())
                     .padding([.leading, .trailing], 20)
                     
-                    Button("Honorar nach Phasen"){
-                        buildingProject.totalHours = totalHours
-                        buildingProject.totalFee = totalFee
-                        buildingProject.hourlyRate = Double(hourlyRate) ?? 0.0
-                        showFeePercentageView = true
-                    }
-                    .sheet(isPresented: $showFeePercentageView) {
-                        feePercentageView(isPresented: $showFeePercentageView)
-                    }
                 
                 }
             }

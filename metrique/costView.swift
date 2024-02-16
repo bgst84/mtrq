@@ -274,7 +274,7 @@ struct costView: View {
                     
                     Spacer()
                     
-                    Text("\(formatNumber(dgProzent)) % ergibt \(formatNumber(Double(GFDG)!)) m2")
+                    Text("\(formatNumber(dgProzent)) % ≈ \(formatNumber(Double(GFDG)!)) m2")
                         .foregroundColor(Color("resultTextColor"))
                     
                     Slider(value: $dgProzent, in: 0...100, step: 5)
@@ -294,7 +294,7 @@ struct costView: View {
                     
                     Spacer()
                     
-                    Text("\(formatNumber(ugProzent)) % ergibt \(formatNumber(Double(GFUG)!)) m2")
+                    Text("\(formatNumber(ugProzent)) % ≈ \(formatNumber(Double(GFUG)!)) m2")
                         .foregroundColor(Color("resultTextColor"))
                     
                     Slider(value: $ugProzent, in: 0...100, step: 5)

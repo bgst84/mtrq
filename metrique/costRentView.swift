@@ -226,7 +226,7 @@ struct costRentView: View {
                         Text("Anteil Fremdkapital (%)")
                             .fontWeight(.bold)
                         
-                        Text(formatNumber(kapitalanteilProzent) + " % ergibt \(formatNumber(Double(fremdkapital)!))")
+                        Text(formatNumber(kapitalanteilProzent) + " % ≈ \(formatNumber(Double(fremdkapital)!))")
                             .foregroundColor(Color("resultTextColor"))
                         
                         Slider(value: $kapitalanteilProzent, in: 0...100, step: 5)
@@ -238,7 +238,7 @@ struct costRentView: View {
                         Text("Verzinsung Eigenkapital (%)")
                             .fontWeight(.bold)
                         
-                        Text(formatNumber2(verzinsungEigenkapitalProzent) + " % ergibt \(formatNumber(Double(verzinsungEigenkapital)!))")
+                        Text(formatNumber2(verzinsungEigenkapitalProzent) + " % ≈ \(formatNumber(Double(verzinsungEigenkapital)!))")
                             .foregroundColor(Color("resultTextColor"))
                         
                         Slider(value: $verzinsungEigenkapitalProzent, in: 0...5, step: 0.05)
@@ -249,7 +249,7 @@ struct costRentView: View {
                         Text("Verzinsung Fremdkapital (%)")
                             .fontWeight(.bold)
                         
-                        Text(formatNumber2(verzinsungFremdkapitalProzent) + " % ergibt \(formatNumber(Double(verzinsungFremdkapital)!))")
+                        Text(formatNumber2(verzinsungFremdkapitalProzent) + " % ≈ \(formatNumber(Double(verzinsungFremdkapital)!))")
                             .foregroundColor(Color("resultTextColor"))
                         Slider(value: $verzinsungFremdkapitalProzent, in: 0...5, step: 0.05)
                         
@@ -273,7 +273,7 @@ struct costRentView: View {
                             .fontWeight(.bold)
                         Text("Abgaben, Betrieb, Steuern, Versicherungen (0.25 – 0.50% der Anlagekosten)")
                         
-                        Text(formatNumber2(laufendeKostenProzent) + "% ergibt \(formatNumber(Double(laufendeKosten)!))")
+                        Text(formatNumber2(laufendeKostenProzent) + "% ≈ \(formatNumber(Double(laufendeKosten)!))")
                             .foregroundColor(Color("resultTextColor"))
                         
                         Slider(value: $laufendeKostenProzent, in: 0.25...0.5, step: 0.05)
@@ -286,7 +286,7 @@ struct costRentView: View {
                             .fontWeight(.bold)
                         Text("Reparaturen und Unterhalt (0.50 – 1.50% der Baukosten)")
                         
-                        Text(formatNumber2(unterhaltsKostenProzent) + "% ergibt \(formatNumber(Double(unterhaltsKosten)!))")
+                        Text(formatNumber2(unterhaltsKostenProzent) + "% ≈ \(formatNumber(Double(unterhaltsKosten)!))")
                             .foregroundColor(Color("resultTextColor"))
                         
                         Slider(value: $unterhaltsKostenProzent, in: 0.5...1.5, step: 0.05)
@@ -299,7 +299,7 @@ struct costRentView: View {
                             .fontWeight(.bold)
                         Text("nur über Baukosten (0.75 – 1.50% der Baukosten)")
                         
-                        Text(formatNumber2(abschreibungenProzent) + "% ergibt \(formatNumber(Double(abschreibungen)!))")
+                        Text(formatNumber2(abschreibungenProzent) + "% ≈ \(formatNumber(Double(abschreibungen)!))")
                             .foregroundColor(Color("resultTextColor"))
                         
                         Slider(value: $abschreibungenProzent, in: 0.75...1.5, step: 0.05)
@@ -313,7 +313,7 @@ struct costRentView: View {
                             .fontWeight(.bold)
                         Text("für Kompensation Leerstände (0.25 – 0.50% der Anlagekosten)")
                         
-                        Text(formatNumber2(risikoprämieProzent) + "% ergibt \(formatNumber(Double(risikoprämie)!))")
+                        Text(formatNumber2(risikoprämieProzent) + "% ≈ \(formatNumber(Double(risikoprämie)!))")
                             .foregroundColor(Color("resultTextColor"))
                         
                         Slider(value: $risikoprämieProzent, in: 0.25...0.5, step: 0.05)
@@ -325,7 +325,7 @@ struct costRentView: View {
                             .fontWeight(.bold)
                         Text("Kosten für die Bewirtschaftung (4 – 5% der Kostenmiete)")
                         
-                        Text(formatNumber2(bewirtschaftungProzent) + "% ergibt \(formatNumber(Double(bewirtschaftung)!))")
+                        Text(formatNumber2(bewirtschaftungProzent) + "% ≈ \(formatNumber(Double(bewirtschaftung)!))")
                             .foregroundColor(Color("resultTextColor"))
                         
                         Slider(value: $bewirtschaftungProzent, in: 3...5, step: 0.25)

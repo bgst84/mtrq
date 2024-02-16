@@ -4,7 +4,18 @@
     "" : {
 
     },
+    "%@ %% ≈ %@ m2" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %% ≈ %2$@ m2"
+          }
+        }
+      }
+    },
     "%@ %% ergibt %@ m2" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -14,8 +25,14 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "%1$@ %% donne %2$@ m2"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %% equivale %@ m2"
           }
         }
       }
@@ -52,7 +69,27 @@
       }
     },
     "Abschluss" : {
-      "comment" : "Phase name for completion"
+      "comment" : "Phase name for completion",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completion"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achèvement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completamento"
+          }
+        }
+      }
     },
     "Abschreibungen (%)" : {
       "localizations" : {
@@ -297,13 +334,73 @@
       }
     },
     "Ausführung" : {
-      "comment" : "Phase name for execution"
+      "comment" : "Phase name for execution",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Execution"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exécution"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esecuzione"
+          }
+        }
+      }
     },
     "Ausführungspläne" : {
-      "comment" : "Phase description for implementation plans"
+      "comment" : "Phase description for implementation plans",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Execution plans"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plans d'exécution"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piani di esecuzione"
+          }
+        }
+      }
     },
     "Ausführungsplanung" : {
-      "comment" : "Phase name for execution planning"
+      "comment" : "Phase name for execution planning",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Execution planning"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Planification de l'exécution"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pianificazione dell'esecuzione"
+          }
+        }
+      }
     },
     "Ausnützungsziffer" : {
       "localizations" : {
@@ -372,13 +469,73 @@
       }
     },
     "Ausschreibung" : {
-      "comment" : "Phase name for tendering"
+      "comment" : "Phase name for tendering",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tendering"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appel d'offres"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gara d'appalto"
+          }
+        }
+      }
     },
     "Ausschreibung und Vergabe" : {
-      "comment" : "Phase description for tender and awarding"
+      "comment" : "Phase description for tender and awarding",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tendering and Awarding"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appel d'offres et attribution"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gara d'appalto e aggiudicazione"
+          }
+        }
+      }
     },
     "Ausschreibungspläne" : {
-      "comment" : "Phase description for tender plans"
+      "comment" : "Phase description for tender plans",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tender plans"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plans d'appel d'offres"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piani di gara"
+          }
+        }
+      }
     },
     "Basisfaktor p" : {
       "localizations" : {
@@ -454,6 +611,12 @@
             "value" : "Construction costs without fees, ancillary costs, etc."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coûts de construction hors honoraires, frais annexes, etc."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -485,10 +648,50 @@
       }
     },
     "Bauleitung & Kostenkontrolle" : {
-      "comment" : "Phase description for construction management & cost control"
+      "comment" : "Phase description for construction management & cost control",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Construction Management & Cost Control"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direction de travaux & Contrôle des coûts"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direzione lavori & Controllo dei costi"
+          }
+        }
+      }
     },
     "Bauprojekt" : {
-      "comment" : "Phase description for construction project\n   Phase name for construction project"
+      "comment" : "Phase description for construction project\n   Phase name for construction project",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Approval project"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "project d'approbation"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progetto approvazione"
+          }
+        }
+      }
     },
     "Baurecht" : {
       "localizations" : {
@@ -671,16 +874,68 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "description"
+            "value" : "Description"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descrizione"
           }
         }
       }
     },
     "Bewilligung" : {
-      "comment" : "Phase name for approval"
+      "comment" : "Phase name for approval",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Approval"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Approbation"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Approvazione"
+          }
+        }
+      }
     },
     "Bewilligungsverfahren" : {
-      "comment" : "Phase description for approval process"
+      "comment" : "Phase description for approval process",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Approval procedure"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procédure d'approbation"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procedura di approvazione"
+          }
+        }
+      }
     },
     "Bewirtschaftung (%)" : {
       "localizations" : {
@@ -818,7 +1073,27 @@
       }
     },
     "Detailstudien" : {
-      "comment" : "Phase description for detailed studies"
+      "comment" : "Phase description for detailed studies",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detail studies"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Études de détail"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Studi di dettaglio"
+          }
+        }
+      }
     },
     "Diese App wird laufend weiterentwickelt und um Funktionen ergänzt." : {
       "localizations" : {
@@ -909,7 +1184,27 @@
       }
     },
     "Dokumentation Bauwerk" : {
-      "comment" : "Phase description for documentation of the building"
+      "comment" : "Phase description for documentation of the building",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Building documentation"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Documentation de l'ouvrage"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Documentazione dell'edificio"
+          }
+        }
+      }
     },
     "Erstellungskosten" : {
       "localizations" : {
@@ -1044,7 +1339,27 @@
       }
     },
     "gestalterische Bauleitung" : {
-      "comment" : "Phase description for creative construction management"
+      "comment" : "Phase description for creative construction management",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creative construction management"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direction de travaux créative"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direzione lavori creativa"
+          }
+        }
+      }
     },
     "Grösse der zu bebauenden Parzelle." : {
       "localizations" : {
@@ -1183,7 +1498,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "fee by phase"
+            "value" : "Fee by phase"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Honoraires par phases"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onorario per fasi"
           }
         }
       }
@@ -1215,13 +1542,45 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "fee phase"
+            "value" : "Fee phase"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phase d'honoraires"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fase di onorario"
           }
         }
       }
     },
     "Inbetriebnahme" : {
-      "comment" : "Phase description for commissioning"
+      "comment" : "Phase description for commissioning",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commissioning"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mise en service"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Messa in servizio"
+          }
+        }
+      }
     },
     "Jahr:" : {
       "localizations" : {
@@ -1428,11 +1787,43 @@
             "state" : "translated",
             "value" : "Cost rent & management (chf)"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loyer coût & gestion"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Affitto costo & gestione"
+          }
         }
       }
     },
     "Kostenvoranschlag" : {
-      "comment" : "Phase description for cost estimate"
+      "comment" : "Phase description for cost estimate",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cost estimate"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devis"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preventivo"
+          }
+        }
+      }
     },
     "Landpreis" : {
       "localizations" : {
@@ -1589,7 +1980,27 @@
       }
     },
     "Leitung Garantiearbeiten" : {
-      "comment" : "Phase description for management of warranty works"
+      "comment" : "Phase description for management of warranty works",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Management of warranty works"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestion des travaux de garantie"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestione dei lavori di garanzia"
+          }
+        }
+      }
     },
     "mail@metrique.app" : {
 
@@ -1822,7 +2233,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "percent"
+            "value" : "Percent"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourcent"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Percento"
           }
         }
       }
@@ -1916,7 +2339,27 @@
       }
     },
     "Schlussrechnung" : {
-      "comment" : "Phase description for final invoice"
+      "comment" : "Phase description for final invoice",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Final invoice"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Facture finale"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fattura finale"
+          }
+        }
+      }
     },
     "Schwierigkeitsgrad" : {
       "localizations" : {
@@ -1985,7 +2428,27 @@
       }
     },
     "Studium der Lösungsmöglichkeiten und Grobkostenschätzung" : {
-      "comment" : "Phase description for study of solution options and rough cost estimate"
+      "comment" : "Phase description for study of solution options and rough cost estimate",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Study of solution options and rough cost estimate"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Étude des options de solution et estimation sommaire des coûts"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Studio delle opzioni di soluzione e stima approssimativa dei costi"
+          }
+        }
+      }
     },
     "Stundensatz" : {
       "localizations" : {
@@ -2203,21 +2666,85 @@
             "state" : "translated",
             "value" : "preliminary project"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Projet préliminaire"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progetto preliminare"
+          }
         }
       }
     },
     "Vorprojekt und Kostenschätzung" : {
-      "comment" : "Phase description for preliminary project and cost estimation"
+      "comment" : "Phase description for preliminary project and cost estimation",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "preliminary project & cost estimate"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Projet préliminaire & estimation des coûts"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progetto preliminare & stima dei costi"
+          }
+        }
+      }
     },
     "Werkverträge" : {
-      "comment" : "Phase description for work contracts"
+      "comment" : "Phase description for work contracts",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Work contracts"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contrats d'ouvrage"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contratti d'opera"
+          }
+        }
+      }
     },
     "Zurück" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "back"
+            "value" : "Back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retour"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indietro"
           }
         }
       }
