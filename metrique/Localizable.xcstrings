@@ -14,25 +14,30 @@
         }
       }
     },
-    "%@ %% ergibt %@ m2" : {
-      "extractionState" : "stale",
+    "%@ %% ergibt %@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %% ergibt %2$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ %% returns %2$@ m2"
+            "value" : "%1$@ %% returns %2$@"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ %% donne %2$@ m2"
+            "value" : "%1$@ %% donne %2$@"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ %% equivale %@ m2"
+            "value" : "%1$@ %% equivale %2$@"
           }
         }
       }
@@ -109,6 +114,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Depreciazioni (%)"
+          }
+        }
+      }
+    },
+    "Amortisation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amortization"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amortissement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ammortamento"
+          }
+        }
+      }
+    },
+    "Amortisation auf Hypothek (chf)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amortization on mortgage"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amortissement sur hypothèque (chf)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ammortamento sul mutuo"
           }
         }
       }
@@ -197,6 +246,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fattore di adeguamento q"
+          }
+        }
+      }
+    },
+    "Anteil Eigenmittel (%)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share of equity (%)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Part des fonds propres (%)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota di capitale proprio (%)"
           }
         }
       }
@@ -671,7 +742,7 @@
       }
     },
     "Bauprojekt" : {
-      "comment" : "Phase description for construction project\n   Phase name for construction project",
+      "comment" : "Phase description for construction project\nPhase name for construction project",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -821,6 +892,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Calcolo dell'onorario in base ai costi di costruzione."
+          }
+        }
+      }
+    },
+    "Berechnung Hypothek und Tragbarkeit." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calculation of mortgage and affordability"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calcul de l’hypothèque et de la capacité financière"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calcolo del mutuo e della sostenibilità"
           }
         }
       }
@@ -1117,6 +1210,28 @@
         }
       }
     },
+    "Dieses Werkzeug berechnet die Finanzierungskosten für den Kauf oder Bau eines Eigenheims sowie das Mindesteinkommen, das für die Hypothek erforderlich ist." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This tool calculates the financing costs for purchasing or building a home, as well as the minimum income required for the mortgage."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cet outil calcule les coûts de financement pour l’achat ou la construction d’une maison, ainsi que le revenu minimum nécessaire pour l’hypothèque."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo strumento calcola i costi di finanziamento per l’acquisto o la costruzione di una casa, nonché il reddito minimo necessario per il mutuo."
+          }
+        }
+      }
+    },
     "Dieses Werkzeug dient der Berechnung des Architektenhonorars. Es kalkuliert den voraussichtlich benötigten Zeitaufwand anhand der aufwandbestimmenden Baukosten und kalkuliert das daraus resultierende Honorar." : {
       "localizations" : {
         "en" : {
@@ -1135,6 +1250,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Questo strumento serve per calcolare l'onorario dell'architetto. Calcola il tempo presumibilmente necessario in base ai costi di costruzione che determinano l'impegno e calcola l'onorario risultante."
+          }
+        }
+      }
+    },
+    "Dieses Werkzeug rechnet die Finanzierungskosten für ein Projekt und daraus das für die Hypothek benötigte Mindesteinkommen." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This tool calculates the financing costs for a project and the minimum income required for the mortgage."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cet outil calcule les coûts de financement d’un projet et le revenu minimum nécessaire pour l’hypothèque."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo strumento calcola i costi di finanziamento per un progetto e il reddito minimo necessario per il mutuo."
           }
         }
       }
@@ -1202,6 +1340,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Documentazione dell'edificio"
+          }
+        }
+      }
+    },
+    "Eigenmittel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Equity"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fonds propres"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capitale proprio"
           }
         }
       }
@@ -1338,6 +1498,50 @@
         }
       }
     },
+    "Gesamtkosten" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total costs"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coûts totaux"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Costi totali"
+          }
+        }
+      }
+    },
+    "Gesamtkosten pro Jahr (chf)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yearly total costs (chf)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coûts totaux par an"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Costi totali per anno"
+          }
+        }
+      }
+    },
     "gestalterische Bauleitung" : {
       "comment" : "Phase description for creative construction management",
       "localizations" : {
@@ -1427,6 +1631,9 @@
         }
       }
     },
+    "Hello, World!" : {
+
+    },
     "HNF" : {
       "localizations" : {
         "en" : {
@@ -1467,6 +1674,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SPU Superficie principale utilizzabile in affitto"
+          }
+        }
+      }
+    },
+    "Höhe Hypothek (chf)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amount of mortgage"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Montant de l’hypothèque"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importo del mutuo (chf)"
           }
         }
       }
@@ -1559,6 +1788,28 @@
         }
       }
     },
+    "Hypothek" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mortgage"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hypothèque"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mutuo"
+          }
+        }
+      }
+    },
     "Inbetriebnahme" : {
       "comment" : "Phase description for commissioning",
       "localizations" : {
@@ -1582,6 +1833,50 @@
         }
       }
     },
+    "Investition" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investment"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investissement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investimento"
+          }
+        }
+      }
+    },
+    "Investitionen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investments"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investissements"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investimenti"
+          }
+        }
+      }
+    },
     "Jahr:" : {
       "localizations" : {
         "en" : {
@@ -1600,6 +1895,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anno:"
+          }
+        }
+      }
+    },
+    "Jährliche Zinsen auf Hypothek (chf)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annual interest on mortgage (chf)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intérêts annuels sur l’hypothèque (chf)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interessi annuali sul mutuo (chf)"
           }
         }
       }
@@ -1688,6 +2005,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Capitale"
+          }
+        }
+      }
+    },
+    "Kaufpreis" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase price"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prix d’achat"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prezzo di acquisto"
+          }
+        }
+      }
+    },
+    "Kaufpreis der Immobilie (chf)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase price of the property (chf)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prix d’achat de la propriété (chf)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prezzo d’acquisto della proprietà (chf)"
           }
         }
       }
@@ -2203,6 +2564,50 @@
         }
       }
     },
+    "Nebenkosten" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Additional costs"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coûts supplémentaires"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Costi aggiuntivi"
+          }
+        }
+      }
+    },
+    "Nebenkosten auf Investition (chf)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Additional costs on investment (chf)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coûts supplémentaires sur l’investissement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Costi aggiuntivi sull’investimento"
+          }
+        }
+      }
+    },
     "nur über Baukosten (0.75 – 1.50% der Baukosten)" : {
       "localizations" : {
         "en" : {
@@ -2504,6 +2909,25 @@
         }
       }
     },
+    "This is a test" : {
+
+    },
+    "Total" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Totale"
+          }
+        }
+      }
+    },
     "Total Honorar (chf)" : {
       "localizations" : {
         "en" : {
@@ -2526,6 +2950,28 @@
         }
       }
     },
+    "Total Investitionen (chf)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Investments (chf)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investissements totaux (chf)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investimenti totali"
+          }
+        }
+      }
+    },
     "Total Stunden (h)" : {
       "localizations" : {
         "en" : {
@@ -2544,6 +2990,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Totale ore (h)"
+          }
+        }
+      }
+    },
+    "Tragbarkeit Hypothek" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mortgage affordability"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capacité de financement de l’hypothèque"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sostenibilità del mutuo"
+          }
+        }
+      }
+    },
+    "Tragbarkeit Mindesteinkommen (chf)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Affordability minimum income (chf)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revenu minimum de capacité financière (chf)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reddito minimo di sostenibilità (chf)"
           }
         }
       }
@@ -2727,6 +3217,28 @@
         }
       }
     },
+    "Zinsen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interest rate"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taux d’intérêt"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tasso di interesse"
+          }
+        }
+      }
+    },
     "Zurück" : {
       "localizations" : {
         "en" : {
@@ -2767,6 +3279,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Riassunto"
+          }
+        }
+      }
+    },
+    "zusätzliche Investitionen, Umbau, etc. (chf)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Additional investments, renovations, etc. (chf)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investissements supplémentaires, rénovations, etc. (chf)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Investimenti aggiuntivi, ristrutturazioni, ecc. (chf)"
           }
         }
       }

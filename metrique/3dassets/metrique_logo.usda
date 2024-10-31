@@ -1,0 +1,34 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "metrique_logo2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (3.1415923, -1.5707963, 0)
+        }
+        prepend references = @metrique_logo2.usdz@
+    )
+    {
+        quatf xformOp:orient = (-3.090862e-8, 0.7071067, 3.090862e-8, 0.70710677)
+        float3 xformOp:scale = (0.01, 0.01, 0.01)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "metrique_logo_obj"
+        {
+            def RealityKitComponent "MotionState"
+            {
+                uniform token info:id = "RealityKit.MotionState"
+                float3 m_userSetAngularVelocity = (50, 0, 0)
+                uint m_userSetAngularVelocityVersion = 1
+            }
+        }
+    }
+}
+

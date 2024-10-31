@@ -10,20 +10,26 @@
 		B205072A2AD02819009AB87B /* feePercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20507292AD02819009AB87B /* feePercentageView.swift */; };
 		B22666F32A7AB0A60060FAAC /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22666F22A7AB0A60060FAAC /* testView.swift */; };
 		B24300F02A596EE700B831CC /* menuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24300EF2A596EE700B831CC /* menuView.swift */; };
+		B26077BB2C00943300E9EF8F /* metrique_logo.scn in Resources */ = {isa = PBXBuildFile; fileRef = B26077BA2C00943300E9EF8F /* metrique_logo.scn */; };
+		B26077BD2C00946C00E9EF8F /* testView3d.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26077BC2C00946C00E9EF8F /* testView3d.swift */; };
 		B26AF1FB2B20B34F0044D7E8 /* classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26AF1FA2B20B34F0044D7E8 /* classes.swift */; };
+		B277371C2BF26E6A00EA15A9 /* mortgageAffordability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B277371B2BF26E6A00EA15A9 /* mortgageAffordability.swift */; };
 		B27CE1C62A3DE0FD00CE5288 /* metrique.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CE1C52A3DE0FD00CE5288 /* metrique.swift */; };
 		B27CE1C82A3DE0FD00CE5288 /* feeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CE1C72A3DE0FD00CE5288 /* feeView.swift */; };
 		B27CE1CA2A3DE0FE00CE5288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B27CE1C92A3DE0FE00CE5288 /* Assets.xcassets */; };
-		B27CE1D72A3DE0FE00CE5288 /* honorarrechnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CE1D62A3DE0FE00CE5288 /* honorarrechnerTests.swift */; };
+		B27CE1D72A3DE0FE00CE5288 /* metriqueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CE1D62A3DE0FE00CE5288 /* metriqueTests.swift */; };
 		B27CE1E12A3DE0FE00CE5288 /* honorarrechnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CE1E02A3DE0FE00CE5288 /* honorarrechnerUITests.swift */; };
 		B27CE1E32A3DE0FE00CE5288 /* honorarrechnerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27CE1E22A3DE0FE00CE5288 /* honorarrechnerUITestsLaunchTests.swift */; };
 		B2872EB32A3F846700525E9F /* baseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2872EB22A3F846700525E9F /* baseFunctions.swift */; };
+		B292A4AB2CD3C8A4003B28DA /* startView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B292A4AA2CD3C8A4003B28DA /* startView.swift */; };
 		B29DEA6B2A584DF600F25898 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29DEA6A2A584DF600F25898 /* data.swift */; };
 		B29F83872A40EB03001986AA /* returnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F83862A40EB03001986AA /* returnView.swift */; };
 		B29F83892A40ED74001986AA /* costView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F83882A40ED74001986AA /* costView.swift */; };
 		B29F838B2A40EDBD001986AA /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F838A2A40EDBD001986AA /* settingsView.swift */; };
+		B2D3EB3E2CAD2D0C00354180 /* classifyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3EB3D2CAD2D0C00354180 /* classifyImage.swift */; };
 		B2DBC65D2A5B01590002E75D /* costRentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC65C2A5B01590002E75D /* costRentView.swift */; };
 		B2E739342A9FDF1800284AFC /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B2E739332A9FDF1800284AFC /* Localizable.xcstrings */; };
+		B2E83F1B2BF2A1FC003BCED2 /* defaultLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E83F1A2BF2A1FC003BCED2 /* defaultLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,23 +53,29 @@
 		B20507292AD02819009AB87B /* feePercentageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feePercentageView.swift; sourceTree = "<group>"; };
 		B22666F22A7AB0A60060FAAC /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 		B24300EF2A596EE700B831CC /* menuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuView.swift; sourceTree = "<group>"; };
+		B26077BA2C00943300E9EF8F /* metrique_logo.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = metrique_logo.scn; path = metrique/3dassets/metrique_logo.scn; sourceTree = SOURCE_ROOT; };
+		B26077BC2C00946C00E9EF8F /* testView3d.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView3d.swift; sourceTree = "<group>"; };
 		B26AF1FA2B20B34F0044D7E8 /* classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classes.swift; sourceTree = "<group>"; };
+		B277371B2BF26E6A00EA15A9 /* mortgageAffordability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mortgageAffordability.swift; sourceTree = "<group>"; };
 		B27CE1C22A3DE0FD00CE5288 /* metrique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metrique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B27CE1C52A3DE0FD00CE5288 /* metrique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = metrique.swift; sourceTree = "<group>"; };
 		B27CE1C72A3DE0FD00CE5288 /* feeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feeView.swift; sourceTree = "<group>"; };
 		B27CE1C92A3DE0FE00CE5288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B27CE1D22A3DE0FE00CE5288 /* metriqueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metriqueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B27CE1D62A3DE0FE00CE5288 /* honorarrechnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = honorarrechnerTests.swift; sourceTree = "<group>"; };
+		B27CE1D62A3DE0FE00CE5288 /* metriqueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = metriqueTests.swift; sourceTree = "<group>"; };
 		B27CE1DC2A3DE0FE00CE5288 /* metriqueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metriqueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B27CE1E02A3DE0FE00CE5288 /* honorarrechnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = honorarrechnerUITests.swift; sourceTree = "<group>"; };
 		B27CE1E22A3DE0FE00CE5288 /* honorarrechnerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = honorarrechnerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B2872EB22A3F846700525E9F /* baseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseFunctions.swift; sourceTree = "<group>"; };
+		B292A4AA2CD3C8A4003B28DA /* startView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startView.swift; sourceTree = "<group>"; };
 		B29DEA6A2A584DF600F25898 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		B29F83862A40EB03001986AA /* returnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = returnView.swift; sourceTree = "<group>"; };
 		B29F83882A40ED74001986AA /* costView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = costView.swift; sourceTree = "<group>"; };
 		B29F838A2A40EDBD001986AA /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
+		B2D3EB3D2CAD2D0C00354180 /* classifyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classifyImage.swift; sourceTree = "<group>"; };
 		B2DBC65C2A5B01590002E75D /* costRentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = costRentView.swift; sourceTree = "<group>"; };
 		B2E739332A9FDF1800284AFC /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		B2E83F1A2BF2A1FC003BCED2 /* defaultLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defaultLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,11 +103,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B24300F12A5978B900B831CC /* archive */ = {
+		B26077B72C00941000E9EF8F /* 3d */ = {
 			isa = PBXGroup;
 			children = (
+				B26077BA2C00943300E9EF8F /* metrique_logo.scn */,
 			);
-			path = archive;
+			path = 3d;
 			sourceTree = "<group>";
 		};
 		B27CE1B92A3DE0FD00CE5288 = {
@@ -121,16 +134,21 @@
 		B27CE1C42A3DE0FD00CE5288 /* metrique */ = {
 			isa = PBXGroup;
 			children = (
-				B24300F12A5978B900B831CC /* archive */,
+				B26077B72C00941000E9EF8F /* 3d */,
 				B27CE1C52A3DE0FD00CE5288 /* metrique.swift */,
 				B24300EF2A596EE700B831CC /* menuView.swift */,
 				B27CE1C72A3DE0FD00CE5288 /* feeView.swift */,
 				B20507292AD02819009AB87B /* feePercentageView.swift */,
 				B29F83862A40EB03001986AA /* returnView.swift */,
+				B292A4AA2CD3C8A4003B28DA /* startView.swift */,
 				B29F83882A40ED74001986AA /* costView.swift */,
+				B277371B2BF26E6A00EA15A9 /* mortgageAffordability.swift */,
 				B2DBC65C2A5B01590002E75D /* costRentView.swift */,
 				B29F838A2A40EDBD001986AA /* settingsView.swift */,
+				B2D3EB3D2CAD2D0C00354180 /* classifyImage.swift */,
 				B2872EB22A3F846700525E9F /* baseFunctions.swift */,
+				B2E83F1A2BF2A1FC003BCED2 /* defaultLayout.swift */,
+				B26077BC2C00946C00E9EF8F /* testView3d.swift */,
 				B22666F22A7AB0A60060FAAC /* testView.swift */,
 				B29DEA6A2A584DF600F25898 /* data.swift */,
 				B26AF1FA2B20B34F0044D7E8 /* classes.swift */,
@@ -151,7 +169,7 @@
 		B27CE1D52A3DE0FE00CE5288 /* metriqueTests */ = {
 			isa = PBXGroup;
 			children = (
-				B27CE1D62A3DE0FE00CE5288 /* honorarrechnerTests.swift */,
+				B27CE1D62A3DE0FE00CE5288 /* metriqueTests.swift */,
 			);
 			path = metriqueTests;
 			sourceTree = "<group>";
@@ -274,6 +292,7 @@
 			files = (
 				B2E739342A9FDF1800284AFC /* Localizable.xcstrings in Resources */,
 				B27CE1CA2A3DE0FE00CE5288 /* Assets.xcassets in Resources */,
+				B26077BB2C00943300E9EF8F /* metrique_logo.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,16 +319,21 @@
 			files = (
 				B205072A2AD02819009AB87B /* feePercentageView.swift in Sources */,
 				B24300F02A596EE700B831CC /* menuView.swift in Sources */,
+				B26077BD2C00946C00E9EF8F /* testView3d.swift in Sources */,
 				B29F83872A40EB03001986AA /* returnView.swift in Sources */,
 				B29F83892A40ED74001986AA /* costView.swift in Sources */,
 				B22666F32A7AB0A60060FAAC /* testView.swift in Sources */,
 				B29DEA6B2A584DF600F25898 /* data.swift in Sources */,
 				B26AF1FB2B20B34F0044D7E8 /* classes.swift in Sources */,
 				B29F838B2A40EDBD001986AA /* settingsView.swift in Sources */,
+				B277371C2BF26E6A00EA15A9 /* mortgageAffordability.swift in Sources */,
 				B27CE1C82A3DE0FD00CE5288 /* feeView.swift in Sources */,
 				B27CE1C62A3DE0FD00CE5288 /* metrique.swift in Sources */,
 				B2DBC65D2A5B01590002E75D /* costRentView.swift in Sources */,
 				B2872EB32A3F846700525E9F /* baseFunctions.swift in Sources */,
+				B2E83F1B2BF2A1FC003BCED2 /* defaultLayout.swift in Sources */,
+				B292A4AB2CD3C8A4003B28DA /* startView.swift in Sources */,
+				B2D3EB3E2CAD2D0C00354180 /* classifyImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B27CE1D72A3DE0FE00CE5288 /* honorarrechnerTests.swift in Sources */,
+				B27CE1D72A3DE0FE00CE5288 /* metriqueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +510,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baugestalt.metrique;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -520,7 +544,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baugestalt.metrique;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

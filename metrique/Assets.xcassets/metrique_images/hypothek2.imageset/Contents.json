@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "baugestalt_illustration_of_an_industrial_scale._on_one_side_of__b6555803-6dee-48b7-9c37-3d7d87e53927.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "baugestalt_illustration_of_an_industrial_scale._on_one_side_of__b6555803-6dee-48b7-9c37-3d7d87e53927 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "baugestalt_illustration_of_an_industrial_scale._on_one_side_of__b6555803-6dee-48b7-9c37-3d7d87e53927 2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

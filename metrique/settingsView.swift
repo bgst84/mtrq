@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SceneKit
+
+
 
 struct settingsView: View {
-    
+    @State private var lastRotation: Float = 90.0
+    @State private var rotation: Float = 0.0
     @FocusState var isFocused : Bool // für Ausblenden des Keyboards
     
     var body: some View {
@@ -17,11 +21,33 @@ struct settingsView: View {
             
             VStack(){
                 
-                Image("settings")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 300)
-                    .clipped()
+                SceneView(
+                    scene: scene,
+                    pointOfView: cameraNode,
+                    options: []
+                )
+               
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            let translation = value.translation
+                            let newRotation = -Float(translation.width) * .pi / 180
+                            rotation = lastRotation + newRotation
+                            rotateCameraAroundOrigin(rotation: rotation)
+                        }
+                        .onEnded { value in
+                            let translation = value.translation
+                            let newRotation = -Float(translation.width) * .pi / 180
+                            lastRotation += newRotation
+                        }
+                )
+                .frame(height: 300)
+               
+//                Image("settings")
+//                    .resizable()
+//                    .scaledToFill()
+//                    .frame(height: 300)
+//                    .clipped()
                 
             }
             .frame(maxWidth: .infinity)

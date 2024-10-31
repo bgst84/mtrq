@@ -15,13 +15,13 @@ struct detailInformation {
 
 struct costView: View {
     
-    @State var parzelle: String = ""
-    @State var ausnuetzung: String = ""
-    @State var vollgeschosse: String = ""
-    @State var gebaeudehoehe: String = ""
-    @State var dgProzent: Double = 0
-    @State var ugProzent: Double = 0
-    @State var m3kosten: Double = 1200
+    @AppStorage("parzelle") var parzelle: String = "" //parzellen-fläche
+    @AppStorage("ausnuetzung") var ausnuetzung: String = ""
+    @AppStorage("vollgeschosse") var vollgeschosse: String = ""
+    @AppStorage("gebaeudehoehe") var gebaeudehoehe: String = ""
+    @AppStorage("dgProzent") var dgProzent: Double = 0
+    @AppStorage("ugProzent") var ugProzent: Double = 0
+    @AppStorage("m3kosten") var m3kosten: Double = 1200
     @FocusState var isFocused : Bool // für Ausblenden des Keyboards
     
     var gebaeudegrundflaeche: String {

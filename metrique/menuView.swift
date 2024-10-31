@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SceneKit
 
 struct menuView: View {
       
@@ -23,6 +24,29 @@ struct menuView: View {
                 
                 VStack{
            
+                    NavigationLink(destination: feeView()){
+                        HStack(spacing: 25.0){
+                            Image("honorar")
+                                .resizable()
+                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+                            
+                            VStack(alignment: .leading){
+                                Text("Architekten-Honorar")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("textColor"))
+                                Text("Berechnung Honorar anhand der Baukosten.")
+                                    .font(.subheadline)
+                                    .foregroundColor(Color("textColor"))
+                                    .multilineTextAlignment(.leading)
+                            }
+                        }
+                        .padding(.horizontal, 25.0)
+                        .padding(.bottom, 10)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    
                     
                     NavigationLink(destination: costView()){
                         HStack(alignment: .center, spacing: 25.0){
@@ -46,31 +70,6 @@ struct menuView: View {
                             }
                         }
                         .padding(.horizontal, 25)
-                        .padding(.bottom, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    
-                    
-                    
-                    NavigationLink(destination: feeView()){
-                        HStack(spacing: 25.0){
-                            Image("honorar")
-                                .resizable()
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-                            
-                            VStack(alignment: .leading){
-                                Text("Architekten-Honorar")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("textColor"))
-                                Text("Berechnung Honorar anhand der Baukosten.")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color("textColor"))
-                                    .multilineTextAlignment(.leading)
-                            }
-                        }
-                        .padding(.horizontal, 25.0)
                         .padding(.bottom, 10)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -125,14 +124,45 @@ struct menuView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     
+                    NavigationLink(destination: mortgageAffordability()){
+                        HStack(spacing: 25.0){
+                            Image("hypothek2")
+                                .resizable()
+                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+                            
+                            VStack(alignment: .leading){
+                                Text("Hypothek")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("textColor"))
+                                Text("Berechnung Hypothek und Tragbarkeit.")
+                                    .font(.subheadline)
+                                    .foregroundColor(Color("textColor"))
+                                    .multilineTextAlignment(.leading)
+                            }
+                        }
+                        .padding(.horizontal, 25.0)
+                        .padding(.bottom, 10)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    
                     
                     
                     NavigationLink(destination: settingsView()){
                         HStack(spacing: 25.0){
-                            Image("settings")
-                                .resizable()
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+//                            Image("settings")
+//                                .resizable()
+//                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+//                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+                            
+                            SceneView(
+                                scene: scene,
+                                pointOfView: cameraNode,
+                                options: []
+                            )
+                            .clipShape(Circle())
+                            .frame(width: 100, height: 100)
                             
                             VStack(alignment: .leading){
                                 Text("Über uns")
@@ -149,6 +179,34 @@ struct menuView: View {
                         .padding(.bottom, 10)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
+                    
+                    //TEST
+            
+//                    NavigationLink(destination: testView3d()){
+//                        HStack(spacing: 25.0){
+//                            Image("settings")
+//                                .resizable()
+//                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+//                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+//                            
+//                            VStack(alignment: .leading){
+//                                Text("Über uns")
+//                                    .font(.title3)
+//                                    .fontWeight(.bold)
+//                                    .foregroundColor(Color("textColor"))
+//                                Text("Über uns & Kontakt")
+//                                    .font(.subheadline)
+//                                    .foregroundColor(Color("textColor"))
+//                                    .multilineTextAlignment(.leading)
+//                            }
+//                        }
+//                        .padding(.horizontal, 25)
+//                        .padding(.bottom, 10)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                    }
+            
+                    //TEST
+                    
                     
                 }
                

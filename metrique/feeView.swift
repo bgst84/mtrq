@@ -6,12 +6,12 @@ struct feeView: View {
     @EnvironmentObject var buildingProject: BuildingProject
     
     
-    @State private var buildingCost: String = "1000000"
-    @State private var difficultyDegree: String = "1"
-    @State private var deliverableProportion: String = "100"
-    @State private var adjustmentFactor: String = "1"
-    @State private var hourlyRate: String = "130"
-    @State var selectedOption = 1 //picker selected option
+    @AppStorage("buildingCost") private var buildingCost: String = "1000000"
+    @AppStorage("difficultyDegree") private var difficultyDegree: String = "1"
+    @AppStorage("deliverableProportion") private var deliverableProportion: String = "100"
+    @AppStorage("adjustmentFactor") private var adjustmentFactor: String = "1"
+    @AppStorage("hourlyRate") private var hourlyRate: String = "130"
+    @AppStorage("selectedOption") var selectedOption: Int = 1 // picker selected option
     
     @FocusState var isFocused: Bool // für Ausblenden des Keyboards
     @State var showFeePercentageView = false //für Sheetview Honorar nach Phasen

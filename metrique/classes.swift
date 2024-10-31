@@ -11,7 +11,7 @@ import SwiftUI
 class BuildingProject: ObservableObject {
     @Published var totalFee = 0.0
     @Published var totalHours = 0.0
-    @Published var hourlyRate = 130.0
+    @Published var hourlyRate = 130.0 //muss weg zugusten von => GlobalSettings.hourlyRate
 }
 
 class GlobalSettings: ObservableObject {

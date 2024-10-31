@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import UIKit
+import SceneKit
 
 func formatNumber(_ number: Double) -> String {
     let numberFormatter = NumberFormatter()
@@ -52,6 +53,7 @@ struct dashSpaceDiv: View {
     }
 }
 
+
 extension UIApplication {
     static var release: String {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String? ?? "x.x"
@@ -69,3 +71,20 @@ func changeOrientation(to orientation: UIInterfaceOrientation) {
         UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
         print("Changing to", orientation.isPortrait ? "Portrait" : "Landscape")
     }
+
+func rotateCameraAroundOrigin(rotation: Float) {
+    guard let cameraNode = cameraNode else { return }
+    
+    // Distance of the camera from the origin
+    let radius: Float = 120.0
+    
+    // New position of the camera
+    let x = radius * cos(rotation)
+    let z = radius * sin(rotation)
+    
+    // Update the camera position
+    cameraNode.position = SCNVector3(x, 0, z)
+    
+    // Make the camera look at the origin
+    cameraNode.look(at: SCNVector3(0, 0, 0))
+}
