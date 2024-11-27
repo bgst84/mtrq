@@ -9,16 +9,25 @@ import SwiftUI
 
 struct mortgageAffordability: View {
     
-    @State var buyingPrice: String = "1000000"  //Kaufpreis ev. totales Investment? oder aufteilen...
-    @State var additioalInvestment: String = "250000"
-    @State var ownFundsPercentage: Double = 0.2 //Prozent Eigenkapital
-    @State var interestRatePercentage: Double = 0.015 //Prozent Hypothekarzins
-    @State var additionalCostPercentage: Double = 0.01 //Prozent Nebenkosten
-    @State var amortizationPercentage: Double = 0.01 //Prozent Amortisation
+    @AppStorage("buyingPrice") var buyingPrice: String = "1000000"
+    @AppStorage("additionalInvestment") var additioalInvestment: String = "250000"
+    @AppStorage("ownFundsPercentage") var ownFundsPercentage: Double = 0.2
+    @AppStorage("interestRatePercentage") var interestRatePercentage: Double = 0.015
+    @AppStorage("additionalCostPercentage") var additionalCostPercentage: Double = 0.01
+    @AppStorage("amortizationPercentage") var amortizationPercentage: Double = 0.01
 
 
     //@State var minimumIncome: String = "" //Mindesteinkommen
     @FocusState var isFocused : Bool // für Ausblenden des Keyboards
+    
+    func resetToDefaults() {
+        buyingPrice = "1000000"
+        additioalInvestment = "250000"
+        ownFundsPercentage = 0.2
+        interestRatePercentage = 0.015
+        additionalCostPercentage = 0.01
+        amortizationPercentage = 0.01
+        }
     
     var mortgagePercentage: Double {
         
@@ -396,6 +405,18 @@ struct mortgageAffordability: View {
             .groupBoxStyle(resultGroupBox())
             .padding([.leading, .trailing], 20)
             //------------------------------------------------------------------------------------
+            
+            //reset values
+            
+            Spacer()
+                .frame(height: groupSpacer)
+            
+            Button{
+                resetToDefaults()
+            } label: {
+                Image(systemName: "return")
+                Text("alle Eingaben zurücksetzen")
+            }
             
         }//VStack End
     }

@@ -9,17 +9,29 @@ import SwiftUI
 
 struct costRentView: View {
     
-    @State var landpreis: String = ""
-    @State var baukosten: String = ""
-    @State var kapitalanteilProzent: Double = 0.0
-    @State var verzinsungEigenkapitalProzent: Double = 0.0
-    @State var verzinsungFremdkapitalProzent: Double = 0.0
-    @State var laufendeKostenProzent: Double = 0.25
-    @State var unterhaltsKostenProzent: Double = 0.5
-    @State var abschreibungenProzent: Double = 0.75
-    @State var risikoprämieProzent: Double = 0.25
-    @State var bewirtschaftungProzent: Double = 3.0
+    @AppStorage("landPrice") var landpreis: String = ""
+    @AppStorage("buildingCost") var baukosten: String = ""
+    @AppStorage("kapitalanteilProzent") var kapitalanteilProzent: Double = 0.0
+    @AppStorage("verzinsungEigenkapitalProzent") var verzinsungEigenkapitalProzent: Double = 0.0
+    @AppStorage("verzinsungFremdkapitalProzent") var verzinsungFremdkapitalProzent: Double = 0.0
+    @AppStorage("laufendeKostenProzent") var laufendeKostenProzent: Double = 0.25
+    @AppStorage("unterhaltsKostenProzent") var unterhaltsKostenProzent: Double = 0.5
+    @AppStorage("abschreibungenProzent") var abschreibungenProzent: Double = 0.75
+    @AppStorage("risikoprämieProzent") var risikoprämieProzent: Double = 0.25
+    @AppStorage("bewirtschaftungProzent") var bewirtschaftungProzent: Double = 3.0
     
+    func resetToDefaults() {
+        landpreis = ""
+        baukosten = ""
+        kapitalanteilProzent = 0.0
+        verzinsungEigenkapitalProzent = 0.0
+        verzinsungFremdkapitalProzent = 0.0
+        laufendeKostenProzent = 0.25
+        unterhaltsKostenProzent = 0.5
+        abschreibungenProzent = 0.75
+        risikoprämieProzent = 0.25
+        bewirtschaftungProzent = 3.0
+    }
     
     var anlagekosten: String {
         
@@ -390,6 +402,19 @@ struct costRentView: View {
                 }
                 .groupBoxStyle(resultGroupBox())
                 .padding([.leading, .trailing], 20)
+                
+                //reset values
+                
+                Spacer()
+                    .frame(height: groupSpacer)
+                
+                Button{
+                    resetToDefaults()
+                } label: {
+                    Image(systemName: "return")
+                    Text("alle Eingaben zurücksetzen")
+                }
+                
             }
         }
             

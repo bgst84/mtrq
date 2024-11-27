@@ -22,7 +22,18 @@ struct costView: View {
     @AppStorage("dgProzent") var dgProzent: Double = 0
     @AppStorage("ugProzent") var ugProzent: Double = 0
     @AppStorage("m3kosten") var m3kosten: Double = 1200
+    @AppStorage("buildingCost") var buildingCost: String = ""
     @FocusState var isFocused : Bool // für Ausblenden des Keyboards
+    
+    func resetToDefaults() {
+        parzelle = ""
+        ausnuetzung = ""
+        vollgeschosse = ""
+        gebaeudehoehe = ""
+        dgProzent = 0
+        ugProzent = 0
+        m3kosten = 1200
+        }
     
     var gebaeudegrundflaeche: String {
         
@@ -140,6 +151,7 @@ struct costView: View {
         let erstellungskostenTemp = m3kostenTemp * bauvolumenMaxTemp
         
         if !erstellungskostenTemp.isNaN {
+            buildingCost = String(erstellungskostenTemp)
             return String(erstellungskostenTemp)
         } else {
             return "0"
@@ -154,241 +166,241 @@ struct costView: View {
     var body: some View {
         
         VStack{
-        
-        ScrollView{
             
-            VStack(){
+            ScrollView{
                 
-                Image("erstellungskosten")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 300)
-                    .clipped()
-            }
-            .frame(maxWidth: .infinity)
-            
-            
-            VStack(alignment: .leading) {
+                VStack(){
+                    
+                    Image("erstellungskosten")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 300)
+                        .clipped()
+                }
+                .frame(maxWidth: .infinity)
                 
-                Group{ // Baurecht
-                    Group {
+                
+                VStack(alignment: .leading) {
+                    
+                    Group{ // Baurecht
+                        Group {
+                            
+                            Text("Erstellungskosten")
+                                .font(.title)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                                .frame(height: 5)
+                            
+                            Text("Dieses Werkzeugt rechnet anhand der wichtigsten Parameter des Baurechts das mögliche Bauvolumen und daraus die zu erwartenden Baukosten.")
+                        }
                         
-                      Text("Erstellungskosten")
-                            .font(.title)
-                            .fontWeight(.bold)
+                        dashSpaceDiv()
                         
-                        Spacer()
-                            .frame(height: 5)
+                        Group{ //Parzellengrösse
+                            
+                            Text("Baurecht")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            Text("Grösse Parzelle (m2)")
+                                .fontWeight(.bold)
+                            
+                            Text("Grösse der zu bebauenden Parzelle.")
+                            
+                            TextField("Grösse Parzelle", text: $parzelle)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                        }
                         
-                        Text("Dieses Werkzeugt rechnet anhand der wichtigsten Parameter des Baurechts das mögliche Bauvolumen und daraus die zu erwartenden Baukosten.")
+                        Group{ //Ausnützung
+                            Text("Ausnützungsziffer (%)")
+                                .fontWeight(.bold)
+                            
+                            Text("Ausnützungsziffer gemäss Zonenplan.")
+                            
+                            
+                            TextField("Ausnützungsziffer", text: $ausnuetzung)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                        }
+                        
+                        Group{ //Vollgeschosse
+                            Text("mögliche Vollgeschosse (#)")
+                                .fontWeight(.bold)
+                            
+                            Text("Anzahl der möglichen Vollgeschosse (ohne Attika- bzw. Dachgeschoss und Untergeschoss.)")
+                            
+                            TextField("mögliche Vollgeschosse", text: $vollgeschosse)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                        }
+                        
+                        Group{ //mögliche Gebäudehöhe
+                            Text("max. Gebäudehöhe (m)")
+                                .fontWeight(.bold)
+                            
+                            Text("maximale Gebäudehöhe (gewachsener Boden bis Traufkante)")
+                            
+                            TextField("max. Gebäudehöhe", text: $gebaeudehoehe)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                        }
                     }
                     
                     dashSpaceDiv()
                     
-                    Group{ //Parzellengrösse
+                    Text("Dach- und Untergeschoss")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                        .frame(height: groupSpacer)
+                    
+                    Group{ //Prozent Dachgeschoss
                         
-                        Text("Baurecht")
-                            .font(.title2)
+                        Text("Anteil GGF Dachgeschoss (%)")
                             .fontWeight(.bold)
+                        
+                        Text("prozentualer Anteil des Dachgeschoss gegenüber der Gebäudegrundfläche")
+                        
+                        Spacer()
+                        
+                        Text("\(formatNumber(dgProzent)) % ≈ \(formatNumber(Double(GFDG)!)) m2")
+                            .foregroundColor(Color("resultTextColor"))
+                        
+                        Slider(value: $dgProzent, in: 0...100, step: 5)
                         
                         Spacer()
                             .frame(height: groupSpacer)
                         
-                        Text("Grösse Parzelle (m2)")
-                                .fontWeight(.bold)
+                    }
+                    
+                    
+                    Group{ //Prozent Untergeschoss
                         
-                        Text("Grösse der zu bebauenden Parzelle.")
+                        Text("Anteil GGF Untergeschoss (%)")
+                            .fontWeight(.bold)
                         
-                        TextField("Grösse Parzelle", text: $parzelle)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
+                        Text("prozentualer Anteil des Untergeschoss gegenüber der Gebäudegrundfläche")
+                        
+                        Spacer()
+                        
+                        Text("\(formatNumber(ugProzent)) % ≈ \(formatNumber(Double(GFUG)!)) m2")
+                            .foregroundColor(Color("resultTextColor"))
+                        
+                        Slider(value: $ugProzent, in: 0...100, step: 5)
+                        
+                    }
+                    
+                    dashSpaceDiv()
+                    
+                    Text("Zusammenfassung")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                        .frame(height: groupSpacer)
+                    
+                    Group{ //max. Ausnützung
+                        Text("maximale Geschosshöhe (m)")
+                            .fontWeight(.bold)
+                        Text(formatNumber(Double(geschosshoeheMax)!))
+                            .foregroundColor(Color("resultTextColor"))
                         
                         Spacer()
                             .frame(height: groupSpacer)
                     }
                     
-                    Group{ //Ausnützung
-                        Text("Ausnützungsziffer (%)")
+                    Group{ //max. Ausnützung
+                        Text("maximale Ausnützung (m2)")
                             .fontWeight(.bold)
-                        
-                        Text("Ausnützungsziffer gemäss Zonenplan.")
-                    
-                        
-                        TextField("Ausnützungsziffer", text: $ausnuetzung)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
+                        Text(formatNumber(Double(ausnuetzungMax)!))
+                            .foregroundColor(Color("resultTextColor"))
                         
                         Spacer()
                             .frame(height: groupSpacer)
                     }
                     
-                    Group{ //Vollgeschosse
-                        Text("mögliche Vollgeschosse (#)")
+                    Group{ //mögliches Bauvolumen oberirdisch
+                        Text("Bauvolumen oberirdisch (m3)")
                             .fontWeight(.bold)
                         
-                        Text("Anzahl der möglichen Vollgeschosse (ohne Attika- bzw. Dachgeschoss und Untergeschoss.)")
-                        
-                        TextField("mögliche Vollgeschosse", text: $vollgeschosse)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
+                        Text(formatNumber(Double(bauvolumenOI)!))
+                            .foregroundColor(Color("resultTextColor")) //zahl erst hier formatieren? test
                         
                         Spacer()
                             .frame(height: groupSpacer)
                     }
                     
-                    Group{ //mögliche Gebäudehöhe
-                        Text("max. Gebäudehöhe (m)")
+                    Group{ //mögliches Bauvolumen unterirdisch
+                        Text("Bauvolumen unterirdisch (m3)")
+                            .fontWeight(.bold)
+                        Text(formatNumber(Double(bauvolumenUI)!))
+                            .foregroundColor(Color("resultTextColor"))
+                        
+                        Spacer()
+                            .frame(height: groupSpacer)
+                    }
+                    
+                    Group{ //mögliches Bauvolumen unterirdisch
+                        Text("Bauvolumen total (m3)")
+                            .fontWeight(.bold)
+                        Text(formatNumber(Double(bauvolumenMax)!))
+                            .foregroundColor(Color("resultTextColor"))
+                        
+                    }
+                    
+                    dashSpaceDiv()
+                    
+                    Group{ //Kosten pro m3
+                        
+                        Text("Baukosten pro m3 (chf)")
                             .fontWeight(.bold)
                         
-                        Text("maximale Gebäudehöhe (gewachsener Boden bis Traufkante)")
-                        
-                        TextField("max. Gebäudehöhe", text: $gebaeudehoehe)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
-                    }
-                }
-                
-                dashSpaceDiv()
-                
-                Text("Dach- und Untergeschoss")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                
-                Spacer()
-                    .frame(height: groupSpacer)
-                
-                Group{ //Prozent Dachgeschoss
-                    
-                    Text("Anteil GGF Dachgeschoss (%)")
-                        .fontWeight(.bold)
-                    
-                    Text("prozentualer Anteil des Dachgeschoss gegenüber der Gebäudegrundfläche")
-                    
-                    Spacer()
-                    
-                    Text("\(formatNumber(dgProzent)) % ≈ \(formatNumber(Double(GFDG)!)) m2")
-                        .foregroundColor(Color("resultTextColor"))
-                    
-                    Slider(value: $dgProzent, in: 0...100, step: 5)
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                    
-                }
-                
-                
-                Group{ //Prozent Untergeschoss
-                    
-                    Text("Anteil GGF Untergeschoss (%)")
-                        .fontWeight(.bold)
-                    
-                    Text("prozentualer Anteil des Untergeschoss gegenüber der Gebäudegrundfläche")
-                    
-                    Spacer()
-                    
-                    Text("\(formatNumber(ugProzent)) % ≈ \(formatNumber(Double(GFUG)!)) m2")
-                        .foregroundColor(Color("resultTextColor"))
-                    
-                    Slider(value: $ugProzent, in: 0...100, step: 5)
-                    
-                }
-                
-                dashSpaceDiv()
-                
-                Text("Zusammenfassung")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                
-                Spacer()
-                    .frame(height: groupSpacer)
-                
-                Group{ //max. Ausnützung
-                    Text("maximale Geschosshöhe (m)")
-                        .fontWeight(.bold)
-                    Text(formatNumber(Double(geschosshoeheMax)!))
-                        .foregroundColor(Color("resultTextColor"))
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                }
-                
-                Group{ //max. Ausnützung
-                    Text("maximale Ausnützung (m2)")
-                        .fontWeight(.bold)
-                    Text(formatNumber(Double(ausnuetzungMax)!))
-                        .foregroundColor(Color("resultTextColor"))
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                }
-                
-                Group{ //mögliches Bauvolumen oberirdisch
-                    Text("Bauvolumen oberirdisch (m3)")
-                        .fontWeight(.bold)
-                    
-                    Text(formatNumber(Double(bauvolumenOI)!))
-                        .foregroundColor(Color("resultTextColor")) //zahl erst hier formatieren? test
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                }
-                
-                Group{ //mögliches Bauvolumen unterirdisch
-                    Text("Bauvolumen unterirdisch (m3)")
-                        .fontWeight(.bold)
-                    Text(formatNumber(Double(bauvolumenUI)!))
-                        .foregroundColor(Color("resultTextColor"))
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                }
-                
-                Group{ //mögliches Bauvolumen unterirdisch
-                    Text("Bauvolumen total (m3)")
-                        .fontWeight(.bold)
-                    Text(formatNumber(Double(bauvolumenMax)!))
-                        .foregroundColor(Color("resultTextColor"))
-                    
-                }
-                
-                dashSpaceDiv()
-                
-                Group{ //Kosten pro m3
-                    
-                    Text("Baukosten pro m3 (chf)")
-                        .fontWeight(.bold)
-                    
                         Text(formatNumber(m3kosten))
                             .foregroundColor(Color("resultTextColor"))
                         
                         Slider(value: $m3kosten, in: 900...1800, step: 50)
+                    }
+                    
+                    
+                    
+                    
+                    
                 }
+                .padding(25.0)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 
                 
-               
                 
             }
-            .padding(25.0)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-            
-            
-            
-        }
-        .onTapGesture {
-            if (isFocused == true) {
-                isFocused = false
+            .onTapGesture {
+                if (isFocused == true) {
+                    isFocused = false
+                }
             }
-        }
             
             GroupBox{ //Erstellungskosten
                 
@@ -412,11 +424,20 @@ struct costView: View {
             }
             .groupBoxStyle(resultGroupBox())
             .padding([.leading, .trailing], 20)
-
+            
+            //reset values
+            
+            Spacer()
+                .frame(height: groupSpacer)
+            
+            Button{
+                resetToDefaults()
+            } label: {
+                Image(systemName: "return")
+                Text("alle Eingaben zurücksetzen")
+            }
             
         }
-        
-        
         
     }
 }

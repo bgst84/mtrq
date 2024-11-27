@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "de",
   "strings" : {
-    "" : {
-
-    },
     "%@ %% ≈ %@ m2" : {
       "localizations" : {
         "de" : {
@@ -12,7 +9,8 @@
             "value" : "%1$@ %% ≈ %2$@ m2"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@ %% ergibt %@" : {
       "localizations" : {
@@ -43,13 +41,13 @@
       }
     },
     "2016" : {
-
+      "shouldTranslate" : false
     },
     "2017" : {
-
+      "shouldTranslate" : false
     },
     "2018" : {
-
+      "shouldTranslate" : false
     },
     "Abgaben, Betrieb, Steuern, Versicherungen (0.25 – 0.50% der Anlagekosten)" : {
       "localizations" : {
@@ -114,6 +112,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Depreciazioni (%)"
+          }
+        }
+      }
+    },
+    "alle Eingaben zurücksetzen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "reset to default values"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser toutes les entrées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reimpostare tutti gli input"
           }
         }
       }
@@ -428,7 +448,7 @@
       }
     },
     "Ausführungspläne" : {
-      "comment" : "Phase description for implementation plans",
+      "comment" : "Phase description for execution plans",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -563,7 +583,7 @@
       }
     },
     "Ausschreibung und Vergabe" : {
-      "comment" : "Phase description for tender and awarding",
+      "comment" : "Phase description for tendering and awarding",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -719,7 +739,7 @@
       }
     },
     "Bauleitung & Kostenkontrolle" : {
-      "comment" : "Phase description for construction management & cost control",
+      "comment" : "Phase description for site management and cost control",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -962,28 +982,6 @@
         }
       }
     },
-    "Beschrieb" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Description"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Description"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descrizione"
-          }
-        }
-      }
-    },
     "Bewilligung" : {
       "comment" : "Phase name for approval",
       "localizations" : {
@@ -1141,7 +1139,7 @@
       }
     },
     "chf/m2a" : {
-
+      "shouldTranslate" : false
     },
     "Dach- und Untergeschoss" : {
       "localizations" : {
@@ -1254,29 +1252,6 @@
         }
       }
     },
-    "Dieses Werkzeug rechnet die Finanzierungskosten für ein Projekt und daraus das für die Hypothek benötigte Mindesteinkommen." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This tool calculates the financing costs for a project and the minimum income required for the mortgage."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cet outil calcule les coûts de financement d’un projet et le revenu minimum nécessaire pour l’hypothèque."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Questo strumento calcola i costi di finanziamento per un progetto e il reddito minimo necessario per il mutuo."
-          }
-        }
-      }
-    },
     "Dieses Werkzeugt errechnet die zu erwartende Brutto-Rendite eines Bauprojekts bei einer Vermietung der gebauten Flächen." : {
       "localizations" : {
         "en" : {
@@ -1322,7 +1297,7 @@
       }
     },
     "Dokumentation Bauwerk" : {
-      "comment" : "Phase description for documentation of the building",
+      "comment" : "Phase description for building documentation",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1542,25 +1517,25 @@
         }
       }
     },
-    "gestalterische Bauleitung" : {
-      "comment" : "Phase description for creative construction management",
+    "Gestalterische Bauleitung" : {
+      "comment" : "Phase description for design site management",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Creative construction management"
+            "value" : "Design site supervision"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Direction de travaux créative"
+            "value" : "Supervision de chantier artistique"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Direzione lavori creativa"
+            "value" : "Supervisione artistica del cantiere"
           }
         }
       }
@@ -1630,9 +1605,6 @@
           }
         }
       }
-    },
-    "Hello, World!" : {
-
     },
     "HNF" : {
       "localizations" : {
@@ -1762,28 +1734,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Calcolo dell'onorario"
-          }
-        }
-      }
-    },
-    "Honorarphase" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fee phase"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Phase d'honoraires"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fase di onorario"
           }
         }
       }
@@ -2364,7 +2314,7 @@
       }
     },
     "mail@metrique.app" : {
-
+      "shouldTranslate" : false
     },
     "max. Gebäudehöhe" : {
       "localizations" : {
@@ -2630,8 +2580,30 @@
         }
       }
     },
+    "Phase" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phase"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "phase"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fase"
+          }
+        }
+      }
+    },
     "Picker" : {
-
+      "shouldTranslate" : false
     },
     "Prozent" : {
       "localizations" : {
@@ -2899,18 +2871,8 @@
         }
       }
     },
-    "test" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "test"
-          }
-        }
-      }
-    },
     "This is a test" : {
-
+      "shouldTranslate" : false
     },
     "Total" : {
       "localizations" : {
@@ -2926,7 +2888,8 @@
             "value" : "Totale"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Total Honorar (chf)" : {
       "localizations" : {
@@ -3154,7 +3117,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "preliminary project"
+            "value" : "Preliminary project"
           }
         },
         "fr" : {
@@ -3177,7 +3140,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "preliminary project & cost estimate"
+            "value" : "Preliminary project & cost estimate"
           }
         },
         "fr" : {

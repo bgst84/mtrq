@@ -9,13 +9,21 @@ import SwiftUI
 
 struct returnView: View {
     
-    @State private var buildingCost: String = ""
-    @State private var landCost: String = ""
-    @State private var NGF: String = ""
-    @State private var chfm2a: String = ""
-    @State private var selectedOption: String = " "
+    @AppStorage("buildingCost") private var buildingCost: String = ""
+    @AppStorage("landPrice") private var landCost: String = ""
+    @AppStorage("NGF") private var NGF: String = ""
+    @AppStorage("chfm2a") private var chfm2a: String = ""
+    @AppStorage("selectedOption") private var selectedOption: String = "0"
     
     @FocusState var isFocused : Bool // für Ausblenden des Keyboards
+    
+    func resetToDefaults() {
+        buildingCost = "1000000"
+        landCost = ""
+        NGF = ""
+        chfm2a = ""
+        selectedOption = "1"
+        }
     
     var totalReturn: String {
         let NGFtemp = Double(NGF) ?? 0
@@ -133,7 +141,8 @@ struct returnView: View {
                             .fontWeight(.bold)
                         
                         Text(formatNumber(Double(totalReturn)!))
-                        
+                            .foregroundColor(Color("resultTextColor"))
+
                         Spacer()
                             .frame(height: groupSpacer)
                     }
@@ -224,6 +233,18 @@ struct returnView: View {
                 }
                 .groupBoxStyle(resultGroupBox())
                 .padding([.leading, .trailing], 20)
+                
+                //reset values
+                
+                Spacer()
+                    .frame(height: groupSpacer)
+                
+                Button{
+                    resetToDefaults()
+                } label: {
+                    Image(systemName: "return")
+                    Text("alle Eingaben zurücksetzen")
+                }
 
             }
         }

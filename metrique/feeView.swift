@@ -11,10 +11,19 @@ struct feeView: View {
     @AppStorage("deliverableProportion") private var deliverableProportion: String = "100"
     @AppStorage("adjustmentFactor") private var adjustmentFactor: String = "1"
     @AppStorage("hourlyRate") private var hourlyRate: String = "130"
-    @AppStorage("selectedOption") var selectedOption: Int = 1 // picker selected option
+    @AppStorage("selectedOption") var selectedOption: Int = 3 // picker selected option
     
     @FocusState var isFocused: Bool // für Ausblenden des Keyboards
     @State var showFeePercentageView = false //für Sheetview Honorar nach Phasen
+    
+    func resetToDefaults() {
+            buildingCost = "1000000"
+            difficultyDegree = "1"
+            deliverableProportion = "100"
+            adjustmentFactor = "1"
+            hourlyRate = "130"
+            selectedOption = 3
+        }
     
     private var totalHours: Double {
         let B = Double(buildingCost) ?? 0
@@ -313,7 +322,6 @@ struct feeView: View {
                                     feePercentageView(isPresented: $showFeePercentageView)
                                 }
                                 
-                                
                             }
                             
                         }
@@ -322,6 +330,17 @@ struct feeView: View {
                     .groupBoxStyle(resultGroupBox())
                     .padding([.leading, .trailing], 20)
                     
+                    //reset values
+                    
+                    Spacer()
+                        .frame(height: groupSpacer)
+                    
+                    Button{
+                        resetToDefaults()
+                    } label: {
+                        Image(systemName: "return")
+                        Text("alle Eingaben zurücksetzen")
+                    }
                 
                 }
             }

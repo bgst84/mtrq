@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 let kantoneMietzins: [String: String] = [
-    " ":"",
     "Zürich": String(formatNumber(19.6 * 12)),
     "Bern": String(formatNumber(15.2 * 12)),
     "Luzern": String(formatNumber(15.6 * 12)),
