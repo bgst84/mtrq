@@ -88,3 +88,4 @@ func rotateCameraAroundOrigin(rotation: Float) {
     // Make the camera look at the origin
     cameraNode.look(at: SCNVector3(0, 0, 0))
 }
+

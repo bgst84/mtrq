@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct returnView: View {
-    
+    @EnvironmentObject var globalSettings: GlobalSettings
+
     @AppStorage("buildingCost") private var buildingCost: String = ""
     @AppStorage("landPrice") private var landCost: String = ""
     @AppStorage("NGF") private var NGF: String = ""
@@ -119,17 +120,22 @@ struct returnView: View {
                         
                         HStack{
                             
-                            Text("kantonaler Durchschnitt 2021:")
+                            Text("kantonaler Durchschnitt: " + globalSettings.rentDataDate)
                             
                             Picker("Kanton auswählen", selection: $selectedOption) {
-                                ForEach(Array(kantoneMietzins.keys), id: \.self) { canton in
-                                    Text(canton)
+                                    ForEach(Array(globalSettings.kantoneMietzins.keys), id: \.self) { canton in
+                                        Text(canton) // Display canton name
+                                    }
                                 }
-                            }
-                            .onChange(of: selectedOption) { newValue in
-                                chfm2a = kantoneMietzins[newValue] ?? ""
-                            }
+                                .onChange(of: selectedOption) { newValue in
+                                    if let selectedRent = globalSettings.kantoneMietzins[newValue] {
+                                        chfm2a = formatNumber(selectedRent) // Convert Double to String
+                                    } else {
+                                        chfm2a = "" // Fallback if no value is found
+                                    }
+                                }
                         }
+                        
                         
                         
                         Spacer()
@@ -256,6 +262,7 @@ struct returnView: View {
 struct returnView_Previews: PreviewProvider {
     static var previews: some View {
         returnView()
+            .environmentObject(GlobalSettings())
     }
 }
 

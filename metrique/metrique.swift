@@ -11,6 +11,7 @@ import SwiftUI
 struct metriqueApp: App {
     
     
+    
     var globalSettings = GlobalSettings()
     var buildingProject = BuildingProject()
     
