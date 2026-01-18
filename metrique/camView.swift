@@ -7,7 +7,7 @@ import AVFoundation
 import ImageIO
 import MobileCoreServices
 
-struct ContentView: View {
+struct camView: View {
     @State private var image: UIImage?
     @State private var showCamera = false
     @State private var isProcessing = false
@@ -24,11 +24,25 @@ struct ContentView: View {
                     .frame(height: 300)
             }
 
-            Button("📷 Foto aufnehmen") {
+            Button(action: {
                 showCamera = true
+            }) {
+                HStack {
+                    Image(systemName: "camera.fill")
+                        .font(.system(size: 24))
+                    Text("📷 Foto aufnehmen")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(15)
+                .shadow(radius: 3)
             }
-            .buttonStyle(.borderedProminent)
             .disabled(isProcessing)
+            .padding(.horizontal)
 
             if isProcessing {
                 ProgressView("Bild wird analysiert…")
@@ -70,25 +84,29 @@ struct ContentView: View {
 
     func classifyImageWithOpenAI(imageData: Data, completion: @escaping (String) -> Void) {
         isProcessing = true
-        let apiKey = "DEIN_OPENAI_API_KEY_HIER"
+        let apiKey = Config.openAIKey
         let url = URL(string: "https://api.openai.com/v1/chat/completions")!
 
-        let base64Image = imageData.base64EncodedString()
+        // Compress image to reduce payload size
+        let compressedImage = UIImage(data: imageData)?.jpegData(compressionQuality: 0.5)  // Reduced quality
+        let base64Image = compressedImage?.base64EncodedString() ?? imageData.base64EncodedString()
+        
         let headers = [
             "Authorization": "Bearer \(apiKey)",
             "Content-Type": "application/json"
         ]
 
         let json: [String: Any] = [
-            "model": "gpt-4-vision-preview",
+            "model": "gpt-4o",
             "messages": [
-                ["role": "system", "content": "Du bist ein Bau-Experte für die Schweiz. Analysiere das Bild und gib mir eine Caption mit BKP-Tags. Formatiere so: #metrique #bkpXYZ Beschreibung"],
+                ["role": "system", "content": "Du bist ein Bau-Experte für die Schweiz. Analysiere das Baustellenfoto und antworte nur mit einer einzeiligen Caption im Format: #metrique #bkpXXX [max 5 Stichworte]"],
                 ["role": "user", "content": [
-                    ["type": "text", "text": "Bitte klassifiziere das Bild."],
+                    ["type": "text", "text": "Klassifiziere das Bild."],
                     ["type": "image_url", "image_url": ["url": "data:image/jpeg;base64,\(base64Image)"]]
                 ]]
             ],
-            "max_tokens": 100
+            "max_tokens": 50,
+            "temperature": 0.3  // Added temperature for faster, more focused responses
         ]
 
         let body = try! JSONSerialization.data(withJSONObject: json)
@@ -98,19 +116,36 @@ struct ContentView: View {
         request.allHTTPHeaderFields = headers
         request.httpBody = body
 
-        URLSession.shared.dataTask(with: request) { data, _, _ in
+        URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
                 self.isProcessing = false
             }
-            guard let data = data,
-                  let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+
+            if let error = error {
+                print("❌ Fehler bei der Anfrage: \(error.localizedDescription)")
+                completion("#metrique Fehler bei der Anfrage")
+                return
+            }
+
+            guard let data = data else {
+                print("❌ Keine Daten erhalten")
+                completion("#metrique Keine Daten erhalten")
+                return
+            }
+
+            if let jsonString = String(data: data, encoding: .utf8) {
+                print("🔎 Antwort von OpenAI:\n\(jsonString)")
+            }
+
+            guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
                   let choices = json["choices"] as? [[String: Any]],
                   let message = choices.first?["message"] as? [String: Any],
-                  let content = message["content"] as? String
-            else {
+                  let content = message["content"] as? String else {
+                print("❌ JSON-Struktur unerwartet")
                 completion("#metrique Fehler bei der Klassifikation")
                 return
             }
+
             completion(content.trimmingCharacters(in: .whitespacesAndNewlines))
         }.resume()
     }
@@ -185,9 +220,8 @@ struct CameraView: UIViewControllerRepresentable {
 
 // MARK: - Preview
 
-struct ContentView2_Previews: PreviewProvider {
+struct camView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        camView()
     }
 }
-

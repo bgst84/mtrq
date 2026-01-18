@@ -1,232 +1,174 @@
-//
-//  menuView.swift
-//  metrique
-//
-//  Created by Yves Seiler on 08.07.23.
-//
-
 import SwiftUI
 import SceneKit
 
-
+// Enum for navigation destinations
+private enum MenuDestination: Hashable {
+    case fee, cost, returns, costRent, mortgage, settings, camera
+}
 
 struct menuView: View {
-      
+    @State private var path: [MenuDestination] = []
+    
     var body: some View {
-        
-        NavigationView{
-            
-            ScrollView{
-                
-                Image("metrique_icon")
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                    .padding(25)
-                
-                
-                VStack{
-           
-                    NavigationLink(destination: feeView()){
-                        HStack(spacing: 25.0){
-                            Image("honorar")
-                                .resizable()
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-                            
-                            VStack(alignment: .leading){
-                                Text("Architekten-Honorar")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("textColor"))
-                                Text("Berechnung Honorar anhand der Baukosten.")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color("textColor"))
-                                    .multilineTextAlignment(.leading)
-                            }
-                        }
-                        .padding(.horizontal, 25.0)
-                        .padding(.bottom, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    
-                    
-                    NavigationLink(destination: costView()){
-                        HStack(alignment: .center, spacing: 25.0){
-                            
-                            Image("erstellungskosten")
-                                .resizable()
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                                .frame(width: 100, height: 100)
-                            VStack(alignment: .leading){
-                                
-                                
-                                Text("Erstellungskosten")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("textColor"))
-                                    
-                                Text("Berechnung mögliche Volumetrie und Erstellungskosten.")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color("textColor"))
-                                    .multilineTextAlignment(.leading)
-                            }
-                        }
-                        .padding(.horizontal, 25)
-                        .padding(.bottom, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                       
-                    
-                    
-                    NavigationLink(destination: returnView()){
-                        HStack(spacing: 25.0){
-                            Image("return")
-                                .resizable()
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-                            
-                            VStack(alignment: .leading){
-                                Text("Brutto-Rendite")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("textColor"))
-                                Text("Berechnung zu erwartende Brutto-Rendite bei Vermietung.")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color("textColor"))
-                                    .multilineTextAlignment(.leading)
-                            }
-                        }
-                        .padding(.horizontal, 25.0)
-                        .padding(.bottom, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    
-                    
-                    
-                    NavigationLink(destination: costRentView()){
-                        HStack(spacing: 25.0){
-                            Image("kostenmiete")
-                                .resizable()
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-                            
-                            VStack(alignment: .leading){
-                                Text("Kostenmiete")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("textColor"))
-                                Text("Berechnung des kostendeckenden Mietzins ohne Gewinnanteil.")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color("textColor"))
-                                    .multilineTextAlignment(.leading)
-                            }
-                        }
-                        .padding(.horizontal, 25.0)
-                        .padding(.bottom, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    
-                    NavigationLink(destination: mortgageAffordability()){
-                        HStack(spacing: 25.0){
-                            Image("hypothek2")
-                                .resizable()
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-                            
-                            VStack(alignment: .leading){
-                                Text("Hypothek")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("textColor"))
-                                Text("Berechnung Hypothek und Tragbarkeit.")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color("textColor"))
-                                    .multilineTextAlignment(.leading)
-                            }
-                        }
-                        .padding(.horizontal, 25.0)
-                        .padding(.bottom, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    
-                    
-                    
-                    NavigationLink(destination: settingsView()){
-                        HStack(spacing: 25.0){
-//                            Image("settings")
-//                                .resizable()
-//                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-//                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-                            
-                            SceneView(
-                                scene: scene,
-                                pointOfView: cameraNode,
-                                options: []
-                            )
-                            .clipShape(Circle())
+        NavigationStack(path: $path) {
+            ScrollView {
+                VStack(spacing: 30) {
+                    // App Icon and title
+                    VStack(spacing: 8) {
+                        Image("metrique_icon")
+                            .resizable()
                             .frame(width: 100, height: 100)
-                            
-                            VStack(alignment: .leading){
-                                Text("Über uns")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color("textColor"))
-                                Text("Über uns & Kontakt")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color("textColor"))
-                                    .multilineTextAlignment(.leading)
-                            }
-                        }
-                        .padding(.horizontal, 25)
-                        .padding(.bottom, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                            .shadow(radius: 6)
+                            .accessibilityLabel("Metrique App Icon")
+                        
                     }
+                    .padding(.top, 32)
                     
-                    //TEST
-            
-//                    NavigationLink(destination: testView3d()){
-//                        HStack(spacing: 25.0){
-//                            Image("settings")
-//                                .resizable()
-//                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-//                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-//                            
-//                            VStack(alignment: .leading){
-//                                Text("Über uns")
-//                                    .font(.title3)
-//                                    .fontWeight(.bold)
-//                                    .foregroundColor(Color("textColor"))
-//                                Text("Über uns & Kontakt")
-//                                    .font(.subheadline)
-//                                    .foregroundColor(Color("textColor"))
-//                                    .multilineTextAlignment(.leading)
-//                            }
-//                        }
-//                        .padding(.horizontal, 25)
-//                        .padding(.bottom, 10)
-//                        .frame(maxWidth: .infinity, alignment: .leading)
-//                    }
-            
-                    //TEST
-                    
-                    
+                    // Menu Cards
+                    VStack(spacing: 0) {
+                        menuCard(
+                            image: "honorar",
+                            title: "Architekten-Honorar",
+                            subtitle: "Berechnung Honorar anhand der Baukosten.",
+                            destination: .fee
+                        )
+                        menuCard(
+                            image: "erstellungskosten",
+                            title: "Erstellungskosten",
+                            subtitle: "Berechnung mögliche Volumetrie und Erstellungskosten.",
+                            destination: .cost
+                        )
+                        menuCard(
+                            image: "return",
+                            title: "Brutto-Rendite",
+                            subtitle: "Berechnung zu erwartende Brutto-Rendite bei Vermietung.",
+                            destination: .returns
+                        )
+                        menuCard(
+                            image: "kostenmiete",
+                            title: "Kostenmiete",
+                            subtitle: "Berechnung des kostendeckenden Mietzins ohne Gewinnanteil.",
+                            destination: .costRent
+                        )
+                        menuCard(
+                            image: "hypothek2",
+                            title: "Hypothek",
+                            subtitle: "Berechnung Hypothek und Tragbarkeit.",
+                            destination: .mortgage
+                        )
+                        // Settings (liquid glass SceneView example)
+                        menuCardScene(
+                            title: "Über uns",
+                            subtitle: "Über uns & Kontakt",
+                            destination: .settings
+                        )
+//                        menuCardScene(
+//                            title: "Kamera",
+//                            subtitle: "Foto & Analyse",
+//                            destination: .camera
+//                        )
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 0)
                 }
-               
+            }
+            .navigationDestination(for: MenuDestination.self) { dest in
+                switch dest {
+                    case .fee: feeView()
+                    case .cost: costView()
+                    case .returns: returnView()
+                    case .costRent: costRentView()
+                    case .mortgage: mortgageAffordability()
+                    case .settings: settingsView()
+                    case .camera: camView()
+                }
             }
         }
     }
     
+    // MARK: - Menu Card (image)
+    @ViewBuilder
+    private func menuCard(image: String, title: LocalizedStringKey, subtitle: LocalizedStringKey, destination: MenuDestination) -> some View {
+        Button {
+            path.append(destination)
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } label: {
+            HStack(spacing: 15) {
+                ZStack {
+                    Image(image)
+                        .resizable()
+                        .clipShape(Circle())
+                        .padding(5)
+                        .shadow(radius: 5)
+
+                }
+                .frame(width: 100, height: 100)
+
+                .accessibilityLabel(title)
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .font(.title3).bold()
+                        .foregroundStyle(.primary)
+                    Text(subtitle)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(title)
+    }
+    
+    // MARK: - Menu Card (SceneKit view)
+    @ViewBuilder
+    private func menuCardScene(title: LocalizedStringKey, subtitle: LocalizedStringKey, destination: MenuDestination) -> some View {
+        Button {
+            path.append(destination)
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } label: {
+            HStack(spacing: 15) {
+                ZStack {
+                    SceneView(
+                        scene: scene,
+                        pointOfView: cameraNode,
+                        options: []
+                    )
+                    .clipShape(Circle())
+                    .padding(5) // shows a subtle glass rim
+                    .shadow(radius: 5)
+
+                }
+                .frame(width: 100, height: 100)
+                .accessibilityLabel(title)
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .font(.title3).bold()
+                        .foregroundStyle(.primary)
+                    Text(subtitle)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(title)
+    }
 }
 
-
-
-
-
-struct menuView_Previews: PreviewProvider {
-        
-    static var previews: some View {
-        menuView()
-            .environmentObject(GlobalSettings())
-            .environmentObject(BuildingProject())
-    }
+// MARK: - Preview
+#Preview {
+    menuView()
+        .environmentObject(GlobalSettings())
+        .environmentObject(BuildingProject())
 }

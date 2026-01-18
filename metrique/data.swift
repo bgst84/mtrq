@@ -44,9 +44,8 @@ struct resultGroupBox: GroupBoxStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.content
             .frame(maxWidth: .infinity)
-            .padding(10)
-            //.background(RoundedRectangle(cornerRadius: 0).fill(Color(.resultField)))
-            .border(Color("lineColor"))
+            .padding(15)
+            .glassEffect()
     }
 }
 
@@ -54,8 +53,7 @@ struct subResultGroupBox: GroupBoxStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.content
             .frame(maxWidth: .infinity)
-            .padding(10)
-            //.background(RoundedRectangle(cornerRadius: 0).fill(Color(.subResultField)))
-            .border(Color("lineColor"))
+            .padding(15)
+            .glassEffect()
     }
 }

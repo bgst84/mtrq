@@ -1,16 +1,33 @@
 {
   "sourceLanguage" : "de",
   "strings" : {
-    "%@ %% ≈ %@ m2" : {
+    "%@ %% ≈ %@ m²" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@ %% ≈ %2$@ m2"
+            "value" : "%1$@ %% ≈ %2$@ m²"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %% ≈ %2$@ m²"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %% ≈ %2$@ m²"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %% ≈ %2$@ m²"
           }
         }
-      },
-      "shouldTranslate" : false
+      }
     },
     "%@ %% ergibt %@" : {
       "localizations" : {
@@ -36,6 +53,53 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ %% equivale %2$@"
+          }
+        }
+      }
+    },
+    "•" : {
+
+    },
+    "💾 In Fotos speichern" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "💾 Save to Photos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "💾 Enregistrer dans Photos"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "💾 Salva in Foto"
+          }
+        }
+      }
+    },
+    "📷 Foto aufnehmen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "📷 Take Photo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "📷 Prendre une photo"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "📷 Scatta una foto"
           }
         }
       }
@@ -297,19 +361,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "share of external capital (%)"
+            "value" : "Share of borrowed capital (%)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Part de capital externe (%)"
+            "value" : "Part du capital étranger (%)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Percentuale di capitale esterno (%)"
+            "value" : "Quota di capitale di terzi (%)"
           }
         }
       }
@@ -358,24 +422,24 @@
         }
       }
     },
-    "Anzahl der möglichen Vollgeschosse (ohne Attika- bzw. Dachgeschoss und Untergeschoss.)" : {
+    "Anzahl der möglichen Vollgeschosse (ohne Attika-/Dachgeschoss und Untergeschoss)." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Number of possible full stories (excluding attic and/or top floor and basement)."
+            "value" : "Number of permitted full storeys\n(excluding attic/roof storeys and basement levels)."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nombre d'étages complets possibles (sans attique ni combles et sans sous-sol)"
+            "value" : "Nombre d’étages pleins autorisés (hors attique/étage sous toiture et sous-sol)."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Numero di piani completi possibili (senza mansarda o seminterrato)"
+            "value" : "Numero di piani fuori terra ammessi\n(esclusi attico/piano sotto tetto e piano interrato)"
           }
         }
       }
@@ -385,19 +449,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Architect's Fee"
+            "value" : "Architect’s fee"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Honoraires d'architecte"
+            "value" : "Honoraires d’architecte"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Onorario dell'architetto"
+            "value" : "Onorario dell’architetto"
           }
         }
       }
@@ -533,28 +597,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Coefficiente di sfruttamento (%)"
-          }
-        }
-      }
-    },
-    "Ausnützungsziffer gemäss Zonenplan." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Utilization ratio according to zoning plan."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coefficient d'utilisation du sol selon le plan de zone."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coefficiente di sfruttamento secondo il piano di zona."
           }
         }
       }
@@ -716,24 +758,24 @@
         }
       }
     },
-    "Baukosten pro m3 (chf)" : {
+    "Baukosten pro m³ (chf)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Construction costs per cubic meter (chf)"
+            "value" : "Construction cost per m³ (chf)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Coûts de construction par m3 (CHF)"
+            "value" : "Coût de construction par m³ (CHF)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Costi di costruzione per m3 (chf)"
+            "value" : "Costo di costruzione per m³ (CHF)"
           }
         }
       }
@@ -757,6 +799,72 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Direzione lavori & Controllo dei costi"
+          }
+        }
+      }
+    },
+    "Baumassenziffer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Building volume ratio"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indice de masse bâtie"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indice di massa edificata"
+          }
+        }
+      }
+    },
+    "Baumassenziffer (m3/m2)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Building volume ratio (m3/m2)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indice de masse bâtie (m3/m2)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indice di massa edificata (m2/m2)"
+          }
+        }
+      }
+    },
+    "Baumassenziffer des Grundstücks." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Building volume ratio of the plot."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baumassenziffer des Grundstücks."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indice di massa edificata del fondo"
           }
         }
       }
@@ -806,68 +914,68 @@
         }
       }
     },
-    "Bauvolumen oberirdisch (m3)" : {
+    "Bauvolumen oberirdisch (m³)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Above-ground construction volume (m³)"
+            "value" : "Above-ground building volume (m³)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Volume de construction hors sol (m³)"
+            "value" : "Volume bâti hors sol (m³)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Volume di costruzione sopra terra (m3)"
+            "value" : "Volume edificato fuori terra (m³)"
           }
         }
       }
     },
-    "Bauvolumen total (m3)" : {
+    "Bauvolumen total (m³)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Total construction volume (m³)"
+            "value" : "Total building volume (m³)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Volume de construction total (m³)"
+            "value" : "Volume bâti total (m³)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Volume di costruzione totale (m3)"
+            "value" : "Volume edificato totale (m³)"
           }
         }
       }
     },
-    "Bauvolumen unterirdisch (m3)" : {
+    "Bauvolumen unterirdisch (m³)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Underground construction volume (m³)"
+            "value" : "Below-ground building volume (m³)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Volume de construction souterrain (m³)"
+            "value" : "Volume bâti en sous-sol (m³)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Volume di costruzione sotterraneo (m³)"
+            "value" : "Volume edificato interrato (m³)"
           }
         }
       }
@@ -877,19 +985,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calculation of cost-covering rent without profit margin."
+            "value" : "Calculation of the cost-covering rent without profit margin."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calcul du loyer couvrant les coûts sans part de bénéfice."
+            "value" : "Calcul du loyer couvrant les coûts, sans marge bénéficiaire."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calcolo dell'affitto coprente i costi senza quota di profitto."
+            "value" : "Calcolo del canone di locazione a copertura dei costi, senza margine di profitto."
           }
         }
       }
@@ -899,7 +1007,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calculation of fee based on construction costs."
+            "value" : "Fee calculation based on construction costs."
           }
         },
         "fr" : {
@@ -911,7 +1019,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calcolo dell'onorario in base ai costi di costruzione."
+            "value" : "Calcolo dell’onorario sulla base dei costi di costruzione."
           }
         }
       }
@@ -921,19 +1029,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calculation of mortgage and affordability"
+            "value" : "Mortgage and affordability calculation."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calcul de l’hypothèque et de la capacité financière"
+            "value" : "Calcul de l’hypothèque et de la capacité financière."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calcolo del mutuo e della sostenibilità"
+            "value" : "Calcolo dell’ipoteca e della sostenibilità finanziaria."
           }
         }
       }
@@ -943,19 +1051,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calculation of possible volumetrics and construction costs."
+            "value" : "Calculation of possible building volume and construction costs."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calcul de la volumétrie possible et des coûts de réalisation."
+            "value" : "Calcul de la volumétrie possible et des coûts de construction."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calcolo del volume possibile e dei costi di realizzazione."
+            "value" : "Calcolo della volumetria possibile e dei costi di realizzazione."
           }
         }
       }
@@ -965,19 +1073,41 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calculation of expected gross return on rental."
+            "value" : "Calculation of the expected gross rental yield."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calcul du rendement brut attendu en cas de location."
+            "value" : "Calcul du rendement brut attendu en cas de mise en location."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Calcolo del rendimento lordo atteso in caso di affitto."
+            "value" : "Calcolo del rendimento lordo atteso in caso di locazione."
+          }
+        }
+      }
+    },
+    "Berechnungsart" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Method of calculation"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Méthode de calcul"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metodo di calcolo"
           }
         }
       }
@@ -1050,24 +1180,40 @@
         }
       }
     },
+    "Bild wird analysiert…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Image is being analysed…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’image est en cours d’analyse…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’immagine viene analizzata…"
+          }
+        }
+      }
+    },
     "Brutto-Rendite" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gross return"
+            "value" : "Gross yield"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rendement brut"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rendimento lordo"
           }
         }
       }
@@ -1138,30 +1284,11 @@
         }
       }
     },
+    "Changelog" : {
+
+    },
     "chf/m2a" : {
       "shouldTranslate" : false
-    },
-    "Dach- und Untergeschoss" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Roof and basement"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Combles et sous-sol"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mansarda e seminterrato"
-          }
-        }
-      }
     },
     "Detailstudien" : {
       "comment" : "Phase description for detailed studies",
@@ -1315,6 +1442,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Documentazione dell'edificio"
+          }
+        }
+      }
+    },
+    "Durchschnittliche Geschossfläche (m²)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Average floor area (m²)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Surface moyenne par étage (m²)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Superficie media di piano (m²)"
           }
         }
       }
@@ -1473,6 +1622,28 @@
         }
       }
     },
+    "Geben Sie die Ausnützungsziffer gemäß Zonenplan ein." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the floor area ratio in accordance with the zoning plan."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez saisir l’indice d’utilisation conformément au plan de zones."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserire l’indice di sfruttamento secondo il piano delle zone."
+          }
+        }
+      }
+    },
     "Gesamtkosten" : {
       "localizations" : {
         "en" : {
@@ -1584,24 +1755,24 @@
         }
       }
     },
-    "Grösse Parzelle (m2)" : {
+    "Grösse Parzelle (m²)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Size of the plot (m2)"
+            "value" : "Plot area (m²)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Superficie de la parcelle (m2)"
+            "value" : "Surface de la parcelle (m²)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dimensione del terreno (m2)"
+            "value" : "Superficie del fondo (m²)"
           }
         }
       }
@@ -1915,28 +2086,6 @@
         }
       }
     },
-    "kantonaler Durchschnitt 2021:" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cantonal average 2021:"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Moyenne cantonale 2021:"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Media cantonale 2021:"
-          }
-        }
-      }
-    },
     "Kapital" : {
       "localizations" : {
         "en" : {
@@ -2132,6 +2281,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Preventivo"
+          }
+        }
+      }
+    },
+    "Lade Änderungen..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading changes…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement des modifications…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caricamento delle modifiche…"
           }
         }
       }
@@ -2360,71 +2531,52 @@
         }
       }
     },
-    "maximale Ausnützung (m2)" : {
+    "Maximale Gebäudehöhe (Boden bis Traufkante)." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "maximum utilization (m2)"
+            "value" : "Maximum building height (ground level to eaves line)."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Utilisation maximale (m²)"
+            "value" : "Hauteur maximale du bâtiment (du sol naturel à la ligne d’égout)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sfruttamento massimo (m2)"
+            "value" : "Altezza massima dell’edificio (dal terreno naturale alla linea di gronda)"
           }
         }
       }
     },
-    "maximale Gebäudehöhe (gewachsener Boden bis Traufkante)" : {
+    "Maximale Geschosshöhe (m)" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "maximum building height (natural ground to eaves edge)"
+            "value" : "Maximum storey height (m)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hauteur maximale du bâtiment (du sol naturel à l'égout)"
+            "value" : "Hauteur maximale du bâtiment (m)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Altezza massima dell'edificio (dal suolo naturale al colmo del tetto)"
+            "value" : "Altezza massima di piano (m)"
           }
         }
       }
     },
-    "maximale Geschosshöhe (m)" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "maximum story height (m)"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hauteur maximale de l'étage (m)"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Altezza massima del piano (m)"
-          }
-        }
-      }
+    "Metrique App Icon" : {
+
     },
     "Mietzins pro m2 und Jahr" : {
       "localizations" : {
@@ -2627,46 +2779,46 @@
         }
       }
     },
-    "prozentualer Anteil des Dachgeschoss gegenüber der Gebäudegrundfläche" : {
+    "Prozentualer Anteil des Dachgeschosses gegenüber der durchschnittlichen Geschossfläche." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "percentage share of the attic space relative to the building's footprint"
+            "value" : "Percentage share of the attic floor relative to the average floor area."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Part en pourcentage des combles par rapport à la surface au sol du bâtiment"
+            "value" : "Part en pourcentage de l’étage sous toiture par rapport à la surface moyenne par étage"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Percentuale dell'area del tetto rispetto all'area di base dell'edificio"
+            "value" : "Quota percentuale dell’attico rispetto alla superficie media di piano"
           }
         }
       }
     },
-    "prozentualer Anteil des Untergeschoss gegenüber der Gebäudegrundfläche" : {
+    "Prozentualer Anteil des Untergeschosses gegenüber der durchschnittlichen Geschossfläche." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "percentage share of the basement relative to the building's footprint"
+            "value" : "Percentage share of the basement relative to the average floor area."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Part en pourcentage du sous-sol par rapport à la surface au sol du bâtiment"
+            "value" : "Part en pourcentage du sous-sol par rapport à la surface moyenne par étage"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Percentuale dell'area del seminterrato rispetto all'area di base dell'edificio"
+            "value" : "Quota percentuale del piano interrato rispetto alla superficie media di piano"
           }
         }
       }
@@ -3034,13 +3186,35 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "À propos de nous et contact"
+            "value" : "À propos & contact"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Su di noi e contatti"
+            "value" : "Chi siamo & contatti"
+          }
+        }
+      }
+    },
+    "Untergeschoss" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basement"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sous-sol"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piano interrato"
           }
         }
       }
@@ -3063,6 +3237,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Costi di manutenzione (%)"
+          }
+        }
+      }
+    },
+    "Version %@ – %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Version %1$@ – %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %1$@ – %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %1$@ – %2$@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versione %1$@ – %2$@"
           }
         }
       }
@@ -3107,6 +3309,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tasso di interesse sul capitale di terzi (%)"
+          }
+        }
+      }
+    },
+    "Vorgeschlagene Caption:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suggested Caption:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Légende suggérée :"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Didascalia suggerita:"
           }
         }
       }
@@ -3185,19 +3409,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Interest rate"
+            "value" : "Interest"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Taux d’intérêt"
+            "value" : "Intérêts"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tasso di interesse"
+            "value" : "Interessi"
           }
         }
       }

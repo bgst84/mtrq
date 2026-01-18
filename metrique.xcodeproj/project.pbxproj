@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B205072A2AD02819009AB87B /* feePercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20507292AD02819009AB87B /* feePercentageView.swift */; };
+		B213C0B32DD3DA5000180746 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213C0B22DD3DA5000180746 /* Config.swift */; };
+		B22858302F1D070300B85EE2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B29492C42F1BD46300F83C2C /* Localizable.xcstrings */; };
 		B24300F02A596EE700B831CC /* menuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24300EF2A596EE700B831CC /* menuView.swift */; };
 		B26077BB2C00943300E9EF8F /* metrique_logo.scn in Resources */ = {isa = PBXBuildFile; fileRef = B26077BA2C00943300E9EF8F /* metrique_logo.scn */; };
 		B26077BD2C00946C00E9EF8F /* testView3d.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26077BC2C00946C00E9EF8F /* testView3d.swift */; };
@@ -25,9 +27,10 @@
 		B29F83872A40EB03001986AA /* returnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F83862A40EB03001986AA /* returnView.swift */; };
 		B29F83892A40ED74001986AA /* costView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F83882A40ED74001986AA /* costView.swift */; };
 		B29F838B2A40EDBD001986AA /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F838A2A40EDBD001986AA /* settingsView.swift */; };
+		B2A9A12B2DBB8B8F008767CD /* camView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9A12A2DBB8B8F008767CD /* camView.swift */; };
 		B2DBC65D2A5B01590002E75D /* costRentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DBC65C2A5B01590002E75D /* costRentView.swift */; };
-		B2E739342A9FDF1800284AFC /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B2E739332A9FDF1800284AFC /* Localizable.xcstrings */; };
 		B2E83F1B2BF2A1FC003BCED2 /* defaultLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E83F1A2BF2A1FC003BCED2 /* defaultLayout.swift */; };
+		B2F16A1C2E677388004B99A0 /* metrique.icon in Resources */ = {isa = PBXBuildFile; fileRef = B2F16A1B2E677388004B99A0 /* metrique.icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		B20507292AD02819009AB87B /* feePercentageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feePercentageView.swift; sourceTree = "<group>"; };
+		B213C0B22DD3DA5000180746 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		B213C0B42DD3DA5F00180746 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		B228EE5F2DBB955100474730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B24300EF2A596EE700B831CC /* menuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuView.swift; sourceTree = "<group>"; };
 		B26077BA2C00943300E9EF8F /* metrique_logo.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = metrique_logo.scn; path = metrique/3dassets/metrique_logo.scn; sourceTree = SOURCE_ROOT; };
 		B26077BC2C00946C00E9EF8F /* testView3d.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView3d.swift; sourceTree = "<group>"; };
@@ -65,13 +71,15 @@
 		B27CE1E22A3DE0FE00CE5288 /* honorarrechnerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = honorarrechnerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B2872EB22A3F846700525E9F /* baseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseFunctions.swift; sourceTree = "<group>"; };
 		B292A4AA2CD3C8A4003B28DA /* startView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startView.swift; sourceTree = "<group>"; };
+		B29492C42F1BD46300F83C2C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B29DEA6A2A584DF600F25898 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		B29F83862A40EB03001986AA /* returnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = returnView.swift; sourceTree = "<group>"; };
 		B29F83882A40ED74001986AA /* costView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = costView.swift; sourceTree = "<group>"; };
 		B29F838A2A40EDBD001986AA /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
+		B2A9A12A2DBB8B8F008767CD /* camView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = camView.swift; sourceTree = "<group>"; };
 		B2DBC65C2A5B01590002E75D /* costRentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = costRentView.swift; sourceTree = "<group>"; };
-		B2E739332A9FDF1800284AFC /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B2E83F1A2BF2A1FC003BCED2 /* defaultLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defaultLayout.swift; sourceTree = "<group>"; };
+		B2F16A1B2E677388004B99A0 /* metrique.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = metrique.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 				B27CE1D52A3DE0FE00CE5288 /* metriqueTests */,
 				B27CE1DF2A3DE0FE00CE5288 /* metriqueUITests */,
 				B27CE1C32A3DE0FD00CE5288 /* Products */,
+				B2F16A1B2E677388004B99A0 /* metrique.icon */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,9 +139,12 @@
 		B27CE1C42A3DE0FD00CE5288 /* metrique */ = {
 			isa = PBXGroup;
 			children = (
+				B228EE5F2DBB955100474730 /* Info.plist */,
+				B213C0B42DD3DA5F00180746 /* Config.swift */,
 				B26077B72C00941000E9EF8F /* 3d */,
 				B27CE1C52A3DE0FD00CE5288 /* metrique.swift */,
 				B24300EF2A596EE700B831CC /* menuView.swift */,
+				B2A9A12A2DBB8B8F008767CD /* camView.swift */,
 				B27CE1C72A3DE0FD00CE5288 /* feeView.swift */,
 				B20507292AD02819009AB87B /* feePercentageView.swift */,
 				B29F83862A40EB03001986AA /* returnView.swift */,
@@ -147,8 +159,9 @@
 				B29DEA6A2A584DF600F25898 /* data.swift */,
 				B26AF1FA2B20B34F0044D7E8 /* classes.swift */,
 				B27CE1C92A3DE0FE00CE5288 /* Assets.xcassets */,
-				B2E739332A9FDF1800284AFC /* Localizable.xcstrings */,
+				B29492C42F1BD46300F83C2C /* Localizable.xcstrings */,
 				B27CE1CB2A3DE0FE00CE5288 /* Preview Content */,
+				B213C0B22DD3DA5000180746 /* Config.swift */,
 			);
 			path = metrique;
 			sourceTree = "<group>";
@@ -241,7 +254,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					B27CE1C12A3DE0FD00CE5288 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -284,7 +297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E739342A9FDF1800284AFC /* Localizable.xcstrings in Resources */,
+				B22858302F1D070300B85EE2 /* Localizable.xcstrings in Resources */,
+				B2F16A1C2E677388004B99A0 /* metrique.icon in Resources */,
 				B27CE1CA2A3DE0FE00CE5288 /* Assets.xcassets in Resources */,
 				B26077BB2C00943300E9EF8F /* metrique_logo.scn in Resources */,
 			);
@@ -315,6 +329,7 @@
 				B24300F02A596EE700B831CC /* menuView.swift in Sources */,
 				B26077BD2C00946C00E9EF8F /* testView3d.swift in Sources */,
 				B29F83872A40EB03001986AA /* returnView.swift in Sources */,
+				B213C0B32DD3DA5000180746 /* Config.swift in Sources */,
 				B29F83892A40ED74001986AA /* costView.swift in Sources */,
 				B29DEA6B2A584DF600F25898 /* data.swift in Sources */,
 				B26AF1FB2B20B34F0044D7E8 /* classes.swift in Sources */,
@@ -326,6 +341,7 @@
 				B2872EB32A3F846700525E9F /* baseFunctions.swift in Sources */,
 				B2E83F1B2BF2A1FC003BCED2 /* defaultLayout.swift in Sources */,
 				B292A4AB2CD3C8A4003B28DA /* startView.swift in Sources */,
+				B2A9A12B2DBB8B8F008767CD /* camView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +436,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -476,6 +493,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -493,18 +511,21 @@
 				DEVELOPMENT_TEAM = H284KAF3HH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = metrique/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = metrique;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires the camera to function correctly.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app requires access to the photo library to function correctly.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baugestalt.metrique;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -527,18 +548,21 @@
 				DEVELOPMENT_TEAM = H284KAF3HH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = metrique/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = metrique;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires the camera to function correctly.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app requires access to the photo library to function correctly.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baugestalt.metrique;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

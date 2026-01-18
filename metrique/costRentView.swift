@@ -149,214 +149,220 @@ struct costRentView: View {
     
     var body: some View {
         
-        
-            
-        VStack{
+        ZStack(alignment: .bottom) {
+            // Main scrollable content fills available space
             ScrollView{
-                
-                VStack(){
+                VStack {
+                    VStack(){
+                        
+                        Image("kostenmiete")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 300)
+                            .clipped()
+                        
+                    }
+                    .frame(maxWidth: .infinity)
                     
-                    Image("kostenmiete")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 300)
-                        .clipped()
                     
+                    VStack(alignment: .leading) {
+                        
+                        Group {
+                            
+                            Text("Kostenmiete")
+                                .font(.title)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                                .frame(height: 5)
+                            
+                            Text("Kalkulierter Mietzins anhand der anfallenden Kosten (Investitionen & Betrieb), ohne Gewinnanteil.")
+                            
+                            dashSpaceDiv()
+                            
+                        }
+                        
+                        Group { //Anlagekosten
+                            
+                            Text("Anlage")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            Text("Landpreis (chf)")
+                                .fontWeight(.bold)
+                            TextField("Landpreis", text: $landpreis)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            Text("Baukosten (chf)")
+                                .fontWeight(.bold)
+                            
+                            TextField("Baukosten", text: $baukosten)
+                                .focused($isFocused)
+                                .keyboardType(.decimalPad)
+                                .padding(5)
+                                .background(Color("textField"))
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            Text("Anlagekosten (chf)")
+                                .fontWeight(.bold)
+                            
+                            Text(formatNumber(Double(anlagekosten)!))
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                        }
+                        
+                        dashSpaceDiv()
+                        
+                        Group { //Kapital
+                            
+                            Text("Kapital")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            Text("Anteil Fremdkapital (%)")
+                                .fontWeight(.bold)
+                            
+                            Text(formatNumber(kapitalanteilProzent) + " % ≈ \(formatNumber(Double(fremdkapital)!))")
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            Slider(value: $kapitalanteilProzent, in: 0...100, step: 5)
+                            
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            Text("Verzinsung Eigenkapital (%)")
+                                .fontWeight(.bold)
+                            
+                            Text(formatNumber2(verzinsungEigenkapitalProzent) + " % ≈ \(formatNumber(Double(verzinsungEigenkapital)!))")
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            Slider(value: $verzinsungEigenkapitalProzent, in: 0...5, step: 0.05)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            Text("Verzinsung Fremdkapital (%)")
+                                .fontWeight(.bold)
+                            
+                            Text(formatNumber2(verzinsungFremdkapitalProzent) + " % ≈ \(formatNumber(Double(verzinsungFremdkapital)!))")
+                                .foregroundColor(Color("resultTextColor"))
+                            Slider(value: $verzinsungFremdkapitalProzent, in: 0...5, step: 0.05)
+                            
+                            
+                        }
+                        
+                        dashSpaceDiv()
+                        
+                        Group { //Kosten
+                            
+                            Text("Kosten")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            
+                            //laufende Kosten
+                            Text("laufende Kosten (%)")
+                                .fontWeight(.bold)
+                            Text("Abgaben, Betrieb, Steuern, Versicherungen (0.25 – 0.50% der Anlagekosten)")
+                            
+                            Text(formatNumber2(laufendeKostenProzent) + "% ≈ \(formatNumber(Double(laufendeKosten)!))")
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            Slider(value: $laufendeKostenProzent, in: 0.25...0.5, step: 0.05)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            //Unterhaltskosten
+                            Text("Unterhaltskosten (%)")
+                                .fontWeight(.bold)
+                            Text("Reparaturen und Unterhalt (0.50 – 1.50% der Baukosten)")
+                            
+                            Text(formatNumber2(unterhaltsKostenProzent) + "% ≈ \(formatNumber(Double(unterhaltsKosten)!))")
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            Slider(value: $unterhaltsKostenProzent, in: 0.5...1.5, step: 0.05)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            //Abschreibungen
+                            Text("Abschreibungen (%)")
+                                .fontWeight(.bold)
+                            Text("nur über Baukosten (0.75 – 1.50% der Baukosten)")
+                            
+                            Text(formatNumber2(abschreibungenProzent) + "% ≈ \(formatNumber(Double(abschreibungen)!))")
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            Slider(value: $abschreibungenProzent, in: 0.75...1.5, step: 0.05)
+                            
+                            Spacer()
+                                .frame(height: groupSpacer)
+                            
+                            
+                            //Risikoprämie
+                            Text("Risikoprämie (%)")
+                                .fontWeight(.bold)
+                            Text("für Kompensation Leerstände (0.25 – 0.50% der Anlagekosten)")
+                            
+                            Text(formatNumber2(risikoprämieProzent) + "% ≈ \(formatNumber(Double(risikoprämie)!))")
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            Slider(value: $risikoprämieProzent, in: 0.25...0.5, step: 0.05)
+                            
+                            dashSpaceDiv()
+                            
+                            //Bewirtschaftung
+                            Text("Bewirtschaftung (%)")
+                                .fontWeight(.bold)
+                            Text("Kosten für die Bewirtschaftung (4 – 5% der Kostenmiete)")
+                            
+                            Text(formatNumber2(bewirtschaftungProzent) + "% ≈ \(formatNumber(Double(bewirtschaftung)!))")
+                                .foregroundColor(Color("resultTextColor"))
+                            
+                            Slider(value: $bewirtschaftungProzent, in: 3...5, step: 0.25)
+                            
+                        }
+                        
+                        
+                    }//end VStack
+                    .padding(25)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    // Add bottom padding so last fields are not obscured by floating result box
+                    Spacer(minLength: 0)
+                        .frame(height: 220)
                 }
-                .frame(maxWidth: .infinity)
-                
-                
-                VStack(alignment: .leading) {
-                    
-                    Group {
-                        
-                        Text("Kostenmiete")
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                            .frame(height: 5)
-                        
-                        Text("Kalkulierter Mietzins anhand der anfallenden Kosten (Investitionen & Betrieb), ohne Gewinnanteil.")
-                        
-                        dashSpaceDiv()
-                        
-                    }
-                    
-                    Group { //Anlagekosten
-                        
-                        Text("Anlage")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        Text("Landpreis (chf)")
-                            .fontWeight(.bold)
-                        TextField("Landpreis", text: $landpreis)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
-                        
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        Text("Baukosten (chf)")
-                            .fontWeight(.bold)
-                        
-                        TextField("Baukosten", text: $baukosten)
-                            .focused($isFocused)
-                            .keyboardType(.decimalPad)
-                            .padding(5)
-                            .background(Color("textField"))
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        Text("Anlagekosten (chf)")
-                            .fontWeight(.bold)
-                        
-                        Text(formatNumber(Double(anlagekosten)!))
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                    }
-                    
-                    dashSpaceDiv()
-                    
-                    Group { //Kapital
-                        
-                        Text("Kapital")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        Text("Anteil Fremdkapital (%)")
-                            .fontWeight(.bold)
-                        
-                        Text(formatNumber(kapitalanteilProzent) + " % ≈ \(formatNumber(Double(fremdkapital)!))")
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Slider(value: $kapitalanteilProzent, in: 0...100, step: 5)
-                        
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        Text("Verzinsung Eigenkapital (%)")
-                            .fontWeight(.bold)
-                        
-                        Text(formatNumber2(verzinsungEigenkapitalProzent) + " % ≈ \(formatNumber(Double(verzinsungEigenkapital)!))")
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Slider(value: $verzinsungEigenkapitalProzent, in: 0...5, step: 0.05)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        Text("Verzinsung Fremdkapital (%)")
-                            .fontWeight(.bold)
-                        
-                        Text(formatNumber2(verzinsungFremdkapitalProzent) + " % ≈ \(formatNumber(Double(verzinsungFremdkapital)!))")
-                            .foregroundColor(Color("resultTextColor"))
-                        Slider(value: $verzinsungFremdkapitalProzent, in: 0...5, step: 0.05)
-                        
-                        
-                    }
-                    
-                    dashSpaceDiv()
-                    
-                    Group { //Kosten
-                        
-                        Text("Kosten")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        
-                        //laufende Kosten
-                        Text("laufende Kosten (%)")
-                            .fontWeight(.bold)
-                        Text("Abgaben, Betrieb, Steuern, Versicherungen (0.25 – 0.50% der Anlagekosten)")
-                        
-                        Text(formatNumber2(laufendeKostenProzent) + "% ≈ \(formatNumber(Double(laufendeKosten)!))")
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Slider(value: $laufendeKostenProzent, in: 0.25...0.5, step: 0.05)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        //Unterhaltskosten
-                        Text("Unterhaltskosten (%)")
-                            .fontWeight(.bold)
-                        Text("Reparaturen und Unterhalt (0.50 – 1.50% der Baukosten)")
-                        
-                        Text(formatNumber2(unterhaltsKostenProzent) + "% ≈ \(formatNumber(Double(unterhaltsKosten)!))")
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Slider(value: $unterhaltsKostenProzent, in: 0.5...1.5, step: 0.05)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        //Abschreibungen
-                        Text("Abschreibungen (%)")
-                            .fontWeight(.bold)
-                        Text("nur über Baukosten (0.75 – 1.50% der Baukosten)")
-                        
-                        Text(formatNumber2(abschreibungenProzent) + "% ≈ \(formatNumber(Double(abschreibungen)!))")
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Slider(value: $abschreibungenProzent, in: 0.75...1.5, step: 0.05)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                        
-                        //Risikoprämie
-                        Text("Risikoprämie (%)")
-                            .fontWeight(.bold)
-                        Text("für Kompensation Leerstände (0.25 – 0.50% der Anlagekosten)")
-                        
-                        Text(formatNumber2(risikoprämieProzent) + "% ≈ \(formatNumber(Double(risikoprämie)!))")
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Slider(value: $risikoprämieProzent, in: 0.25...0.5, step: 0.05)
-                        
-                        dashSpaceDiv()
-                        
-                        //Bewirtschaftung
-                        Text("Bewirtschaftung (%)")
-                            .fontWeight(.bold)
-                        Text("Kosten für die Bewirtschaftung (4 – 5% der Kostenmiete)")
-                        
-                        Text(formatNumber2(bewirtschaftungProzent) + "% ≈ \(formatNumber(Double(bewirtschaftung)!))")
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Slider(value: $bewirtschaftungProzent, in: 3...5, step: 0.25)
-                        
-                    }
-                    
-                    
-                }//end VStack
-                .padding(25)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
             .onTapGesture {
                 if (isFocused == true) {
                     isFocused = false
                 }
             }
             
-            Group{
+            // Floating result panel overlayed at the bottom
+            VStack(spacing: 12) {
                 GroupBox{
                     VStack(alignment: .leading){
                         Text("Kostenmiete (chf)")
@@ -376,7 +382,6 @@ struct costRentView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
                 }
-                .padding([.leading, .trailing], 20)
                 .groupBoxStyle(subResultGroupBox())
                 
                 
@@ -401,21 +406,17 @@ struct costRentView: View {
                     
                 }
                 .groupBoxStyle(resultGroupBox())
-                .padding([.leading, .trailing], 20)
                 
                 //reset values
-                
-                Spacer()
-                    .frame(height: groupSpacer)
-                
                 Button{
                     resetToDefaults()
                 } label: {
                     Image(systemName: "return")
                     Text("alle Eingaben zurücksetzen")
                 }
-                
             }
+            .padding(.horizontal, 20)
+            
         }
             
         

@@ -1,11 +1,9 @@
-//
-//  costView.swift
-//  metrique
-//
-//  Created by Yves Seiler on 19.06.23.
-//
-
 import SwiftUI
+
+enum CalculationMode: Int {
+    case ausnutzung = 0
+    case baumasse
+}
 
 struct detailInformation {
     let title: String
@@ -15,16 +13,24 @@ struct detailInformation {
 
 struct costView: View {
     
-    @AppStorage("parzelle") var parzelle: String = "" //parzellen-fläche
-    @AppStorage("ausnuetzung") var ausnuetzung: String = ""
-    @AppStorage("vollgeschosse") var vollgeschosse: String = ""
-    @AppStorage("gebaeudehoehe") var gebaeudehoehe: String = ""
-    @AppStorage("dgProzent") var dgProzent: Double = 0
-    @AppStorage("ugProzent") var ugProzent: Double = 0
-    @AppStorage("m3kosten") var m3kosten: Double = 1200
+    // Common inputs
+    @AppStorage("parzelle") var parzelle: String = ""         // Plot size (m²)
+    @AppStorage("vollgeschosse") var vollgeschosse: String = "" // Number of stories
+    @AppStorage("gebaeudehoehe") var gebaeudehoehe: String = "" // Total building height (m)
+    @AppStorage("dgProzent") var dgProzent: Double = 0         // Roof (attic) percentage
+    @AppStorage("ugProzent") var ugProzent: Double = 0         // Basement (underground) percentage
+    @AppStorage("m3kosten") var m3kosten: Double = 1200        // Cost per cubic meter
     @AppStorage("buildingCost") var buildingCost: String = ""
-    @FocusState var isFocused : Bool // für Ausblenden des Keyboards
     
+    // Mode selection: 0 = Ausnützungsziffer, 1 = Baumassenziffer
+    @AppStorage("calcMode") var calcMode: Int = 0
+    // Input specific to the chosen mode:
+    @AppStorage("ausnuetzung") var ausnuetzung: String = ""         // For Ausnützungsziffer mode (in %)
+    @AppStorage("baumassenziffer") var baumassenziffer: String = ""   // For Baumassenziffer mode
+    
+    @FocusState var isFocused: Bool // to dismiss the keyboard
+    
+    // Reset all fields to defaults
     func resetToDefaults() {
         parzelle = ""
         ausnuetzung = ""
@@ -33,412 +39,315 @@ struct costView: View {
         dgProzent = 0
         ugProzent = 0
         m3kosten = 1200
-        }
-    
-    var gebaeudegrundflaeche: String {
-        
-        let ausnuetzungMaxTemp = Double(ausnuetzungMax) ?? 0
-        let vollgeschosseTemp = Double(vollgeschosse) ?? 0
-        let ggfTemp = ausnuetzungMaxTemp/vollgeschosseTemp
-        
-        return String(ggfTemp)
+        baumassenziffer = ""
     }
     
-    
-    var GFDG: String {
-        let dgProzentTemp = dgProzent
-        let ggfTemp = Double(gebaeudegrundflaeche) ?? 0
-        let GFDGTemp: Double = ggfTemp/100.0*dgProzentTemp
-        
-        if !GFDGTemp.isNaN{
-            return String(GFDGTemp)
-        }else{
-            return "0"
-        }
-        
-    }
-    
-    var GFUG: String {
-        let ugProzentTemp = ugProzent
-        let ggfTemp = Double(gebaeudegrundflaeche) ?? 0
-        let GFUGTemp: Double = ggfTemp/100.0*ugProzentTemp
-        
-        if !GFUGTemp.isNaN{
-            return String(GFUGTemp)
-        }else{
-            return "0"
-        }
-        
-    }
-    
-    
-    var bauvolumenOI: String {
-        
-        let GFDGtemp = Double(GFDG) ?? 0
-        let ausnuetzungMaxTemp = Double(ausnuetzungMax) ?? 0
-        let geschosshoeheTemp = Double(geschosshoeheMax) ?? 0
-        let bauvolumenOITemp = ausnuetzungMaxTemp * geschosshoeheTemp + GFDGtemp*geschosshoeheTemp * geschosshoeheTemp
-        
-        if !bauvolumenOITemp.isNaN {
-            return String(bauvolumenOITemp)
+    // Computed property: Maximum utilization area (only used in Ausnützungsziffer mode)
+    var ausnuetzungMax: Double {
+        if calcMode == CalculationMode.ausnutzung.rawValue {
+            let parzelleTemp = Double(parzelle) ?? 0
+            let ausnutzungTemp = Double(ausnuetzung) ?? 0
+            return parzelleTemp / 100 * ausnutzungTemp
         } else {
-            return "0"
-        }
-        
-        
-    }
-    
-    var bauvolumenUI: String {
-        
-        let GFUGtemp = Double(GFUG) ?? 0
-        let geschosshoeheTemp = Double(geschosshoeheMax) ?? 0
-        let bauvolumenUITemp = GFUGtemp * geschosshoeheTemp
-        
-        if !bauvolumenUITemp.isNaN {
-            return String(bauvolumenUITemp)
-        } else {
-            return "0"
-        }
-        
-    }
-    
-    
-    var ausnuetzungMax: String {
-        let parzelleTemp = Double(parzelle) ?? 0
-        let ausnuetzungTemp = Double(ausnuetzung) ?? 0
-        let ausnuetzungMaxTemp = parzelleTemp/100*ausnuetzungTemp
-        
-        if !ausnuetzungMaxTemp.isNaN{
-            return String(ausnuetzungMaxTemp)
-        }else{
-            return "0"
+            return 0
         }
     }
     
-    var bauvolumenMax: String {
-        
-        let bauvolumenOITemp = Double(bauvolumenOI) ?? 0
-        let bauvolumenUITemp = Double(bauvolumenUI) ?? 0
-        let bauvolumenMaxTemp = bauvolumenOITemp + bauvolumenUITemp
-        
-        if !bauvolumenMaxTemp.isNaN {
-            return String(bauvolumenMaxTemp)
-        } else {
-            
-            return "0"
-            
-        }
-    }
-    
-    var geschosshoeheMax: String {
-        
+    // Computed property: Floor height (m) (same for both modes)
+    var geschosshoeheMax: Double {
         let gebaeudehoeheTemp = Double(gebaeudehoehe) ?? 0
-        let vollgeschosseTemp = Double(vollgeschosse) ?? 0
-        let geschosshoeheMaxTemp = gebaeudehoeheTemp/vollgeschosseTemp
-        
-        if !geschosshoeheMaxTemp.isNaN{
-            return String(geschosshoeheMaxTemp)
-        }else{
-            return "0"
-        }
+        let vollgeschosseTemp = Double(vollgeschosse) ?? 1
+        return gebaeudehoeheTemp / vollgeschosseTemp
     }
     
-    var erstellungskosten: String {
-        
-        let m3kostenTemp = Double(m3kosten)
-        let bauvolumenMaxTemp = Double(bauvolumenMax) ?? 0
-        
-        let erstellungskostenTemp = m3kostenTemp * bauvolumenMaxTemp
-        
-        if !erstellungskostenTemp.isNaN {
-            buildingCost = String(erstellungskostenTemp)
-            return String(erstellungskostenTemp)
+    // Computed property: Allowed above-ground volume (m³)
+    var bauvolumenOI: Double {
+        if calcMode == CalculationMode.ausnutzung.rawValue {
+            // Using ausnützungsziffer mode: use usable area * floor height
+            return ausnuetzungMax * geschosshoeheMax
         } else {
-            return "0"
+            // Baumassenziffer mode: directly calculate allowed above-ground volume
+            let parzelleVal = Double(parzelle) ?? 0
+            let baumassenzifferVal = Double(baumassenziffer) ?? 0
+            return parzelleVal * baumassenzifferVal
         }
-        
     }
     
+    // Computed property: Average floor area (m²) based on the above-ground volume.
+    var gebaeudegrundflaeche: Double {
+        let numFloors = Double(vollgeschosse) ?? 1
+        let floorHeight = geschosshoeheMax
+        
+        if calcMode == CalculationMode.ausnutzung.rawValue {
+            return ausnuetzungMax / numFloors
+        } else {
+            // In Baumassenziffer mode, derive average area from the allowed volume:
+            return bauvolumenOI / (numFloors * floorHeight)
+        }
+    }
     
+    // Computed property: Roof area (only used in Ausnützungsziffer mode)
+    var GFDG: Double {
+        if calcMode == CalculationMode.ausnutzung.rawValue {
+            return gebaeudegrundflaeche / 100.0 * dgProzent
+        } else {
+            return 0
+        }
+    }
     
+    // Computed property: Underground area based on a percentage of average floor area
+    var GFUG: Double {
+        return gebaeudegrundflaeche / 100.0 * ugProzent
+    }
     
+    // Computed property: Underground volume (m³) using the average story height
+    var bauvolumenUI: Double {
+        return GFUG * geschosshoeheMax
+    }
+    
+    // Computed property: Total building volume (above + below ground)
+    var bauvolumenMax: Double {
+        return bauvolumenOI + bauvolumenUI
+    }
+    
+    // Computed property: Estimated construction cost
+    var erstellungskosten: Double {
+        let cost = m3kosten * bauvolumenMax
+        buildingCost = String(cost)  // This updates the AppStorage value as string.
+        return cost
+    }
     
     var body: some View {
-        
-        VStack{
-            
-            ScrollView{
-                
-                VStack(){
+        ZStack(alignment: .bottom) {
+            // Main scrollable content fills available space
+            ScrollView {
+                VStack {
+                    // Image section (unchanged)
+                    VStack {
+                        Image("erstellungskosten")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 300)
+                            .clipped()
+                    }
+                    .frame(maxWidth: .infinity)
                     
-                    Image("erstellungskosten")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 300)
-                        .clipped()
-                }
-                .frame(maxWidth: .infinity)
-                
-                
-                VStack(alignment: .leading) {
                     
-                    Group{ // Baurecht
-                        Group {
-                            
-                            Text("Erstellungskosten")
-                                .font(.title)
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                                .frame(height: 5)
-                            
-                            Text("Dieses Werkzeugt rechnet anhand der wichtigsten Parameter des Baurechts das mögliche Bauvolumen und daraus die zu erwartenden Baukosten.")
+                    
+                    VStack(alignment: .leading) {
+                        
+                    Group{
+                        Text("Erstellungskosten")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                            .frame(height: 5)
+                        
+                        Text("Dieses Werkzeugt rechnet anhand der wichtigsten Parameter des Baurechts das mögliche Bauvolumen und daraus die zu erwartenden Baukosten.")
+                    }
+                    
+                    dashSpaceDiv()
+                        
+                        // Picker for Calculation Mode
+                        Picker("Berechnungsart", selection: $calcMode) {
+                            Text("Ausnützungsziffer").tag(CalculationMode.ausnutzung.rawValue)
+                            Text("Baumassenziffer").tag(CalculationMode.baumasse.rawValue)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        
+                        Spacer()
+                            .frame(height: 15)
+                        
+                        // Mode-specific input fields:
+                        if calcMode == CalculationMode.ausnutzung.rawValue {
+                            Group {
+                                Text("Ausnützungsziffer (%)")
+                                    .fontWeight(.bold)
+                                Text("Geben Sie die Ausnützungsziffer gemäß Zonenplan ein.")
+                                TextField("Ausnützungsziffer", text: $ausnuetzung)
+                                    .focused($isFocused)
+                                    .keyboardType(.decimalPad)
+                                    .padding(5)
+                                    .background(Color("textField"))
+                            }
+                        } else {
+                            Group {
+                                Text("Baumassenziffer (m3/m2)")
+                                    .fontWeight(.bold)
+                                Text("Baumassenziffer des Grundstücks.")
+                                TextField("Baumassenziffer", text: $baumassenziffer)
+                                    .focused($isFocused)
+                                    .keyboardType(.decimalPad)
+                                    .padding(5)
+                                    .background(Color("textField"))
+                            }
                         }
                         
                         dashSpaceDiv()
                         
-                        Group{ //Parzellengrösse
-                            
+                        Group { // Allgemeine Eingaben
                             Text("Baurecht")
                                 .font(.title2)
                                 .fontWeight(.bold)
+                            Spacer().frame(height: 10)
                             
-                            Spacer()
-                                .frame(height: groupSpacer)
-                            
-                            Text("Grösse Parzelle (m2)")
+                            Text("Grösse Parzelle (m²)")
                                 .fontWeight(.bold)
-                            
                             Text("Grösse der zu bebauenden Parzelle.")
-                            
                             TextField("Grösse Parzelle", text: $parzelle)
                                 .focused($isFocused)
                                 .keyboardType(.decimalPad)
                                 .padding(5)
                                 .background(Color("textField"))
                             
-                            Spacer()
-                                .frame(height: groupSpacer)
-                        }
-                        
-                        Group{ //Ausnützung
-                            Text("Ausnützungsziffer (%)")
-                                .fontWeight(.bold)
+                            Spacer().frame(height: 10)
                             
-                            Text("Ausnützungsziffer gemäss Zonenplan.")
-                            
-                            
-                            TextField("Ausnützungsziffer", text: $ausnuetzung)
-                                .focused($isFocused)
-                                .keyboardType(.decimalPad)
-                                .padding(5)
-                                .background(Color("textField"))
-                            
-                            Spacer()
-                                .frame(height: groupSpacer)
-                        }
-                        
-                        Group{ //Vollgeschosse
                             Text("mögliche Vollgeschosse (#)")
                                 .fontWeight(.bold)
-                            
-                            Text("Anzahl der möglichen Vollgeschosse (ohne Attika- bzw. Dachgeschoss und Untergeschoss.)")
-                            
+                            Text("Anzahl der möglichen Vollgeschosse (ohne Attika-/Dachgeschoss und Untergeschoss).")
                             TextField("mögliche Vollgeschosse", text: $vollgeschosse)
                                 .focused($isFocused)
                                 .keyboardType(.decimalPad)
                                 .padding(5)
                                 .background(Color("textField"))
                             
-                            Spacer()
-                                .frame(height: groupSpacer)
-                        }
-                        
-                        Group{ //mögliche Gebäudehöhe
+                            Spacer().frame(height: 10)
+                            
                             Text("max. Gebäudehöhe (m)")
                                 .fontWeight(.bold)
-                            
-                            Text("maximale Gebäudehöhe (gewachsener Boden bis Traufkante)")
-                            
+                            Text("Maximale Gebäudehöhe (Boden bis Traufkante).")
                             TextField("max. Gebäudehöhe", text: $gebaeudehoehe)
                                 .focused($isFocused)
                                 .keyboardType(.decimalPad)
                                 .padding(5)
                                 .background(Color("textField"))
                         }
-                    }
-                    
-                    dashSpaceDiv()
-                    
-                    Text("Dach- und Untergeschoss")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                    
-                    Group{ //Prozent Dachgeschoss
                         
-                        Text("Anteil GGF Dachgeschoss (%)")
+                        dashSpaceDiv()
+                        
+                        Text("Untergeschoss")
+                            .font(.title2)
                             .fontWeight(.bold)
+                        Spacer().frame(height: 10)
                         
-                        Text("prozentualer Anteil des Dachgeschoss gegenüber der Gebäudegrundfläche")
+                        // Show roof percentage only in Ausnützungsziffer mode
+                        if calcMode == CalculationMode.ausnutzung.rawValue {
+                            Group {
+                                Text("Anteil GGF Dachgeschoss (%)")
+                                    .fontWeight(.bold)
+                                Text("Prozentualer Anteil des Dachgeschosses gegenüber der durchschnittlichen Geschossfläche.")
+                                Spacer()
+                                Text("\(formatNumber2(dgProzent)) % ≈ \(formatNumber2(GFDG)) m²")
+                                    .foregroundColor(Color("resultTextColor"))
+                                Slider(value: $dgProzent, in: 0...100, step: 5)
+                                Spacer().frame(height: 10)
+                            }
+                        }
                         
-                        Spacer()
+                        // Underground percentage input remains in both modes.
+                        Group {
+                            Text("Anteil GGF Untergeschoss (%)")
+                                .fontWeight(.bold)
+                            Text("Prozentualer Anteil des Untergeschosses gegenüber der durchschnittlichen Geschossfläche.")
+                            Spacer()
+                            Text("\(formatNumber2(ugProzent)) % ≈ \(formatNumber2(GFUG)) m²")
+                                .foregroundColor(Color("resultTextColor"))
+                            Slider(value: $ugProzent, in: 0...100, step: 5)
+                        }
                         
-                        Text("\(formatNumber(dgProzent)) % ≈ \(formatNumber(Double(GFDG)!)) m2")
-                            .foregroundColor(Color("resultTextColor"))
+                        dashSpaceDiv()
                         
-                        Slider(value: $dgProzent, in: 0...100, step: 5)
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                        
-                    }
-                    
-                    
-                    Group{ //Prozent Untergeschoss
-                        
-                        Text("Anteil GGF Untergeschoss (%)")
+                        Text("Zusammenfassung")
+                            .font(.title2)
                             .fontWeight(.bold)
+                        Spacer().frame(height: 10)
                         
-                        Text("prozentualer Anteil des Untergeschoss gegenüber der Gebäudegrundfläche")
+                        Group {
+                            Text("Maximale Geschosshöhe (m)")
+                                .fontWeight(.bold)
+                            Text(formatNumber2(geschosshoeheMax))
+                                .foregroundColor(Color("resultTextColor"))
+                            Spacer().frame(height: 10)
+                            
+                            Text("Durchschnittliche Geschossfläche (m²)")
+                                .fontWeight(.bold)
+                            Text(formatNumber2(gebaeudegrundflaeche))
+                                .foregroundColor(Color("resultTextColor"))
+                            Spacer().frame(height: 10)
+                            
+                            Text("Bauvolumen oberirdisch (m³)")
+                                .fontWeight(.bold)
+                            Text(formatNumber2(bauvolumenOI))
+                                .foregroundColor(Color("resultTextColor"))
+                            Spacer().frame(height: 10)
+                            
+                            Text("Bauvolumen unterirdisch (m³)")
+                                .fontWeight(.bold)
+                            Text(formatNumber2(bauvolumenUI))
+                                .foregroundColor(Color("resultTextColor"))
+                            Spacer().frame(height: 10)
+                            
+                            Text("Bauvolumen total (m³)")
+                                .fontWeight(.bold)
+                            Text(formatNumber2(bauvolumenMax))
+                                .foregroundColor(Color("resultTextColor"))
+                        }
                         
-                        Spacer()
+                        dashSpaceDiv()
                         
-                        Text("\(formatNumber(ugProzent)) % ≈ \(formatNumber(Double(GFUG)!)) m2")
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Slider(value: $ugProzent, in: 0...100, step: 5)
-                        
-                    }
-                    
-                    dashSpaceDiv()
-                    
-                    Text("Zusammenfassung")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                    
-                    Spacer()
-                        .frame(height: groupSpacer)
-                    
-                    Group{ //max. Ausnützung
-                        Text("maximale Geschosshöhe (m)")
-                            .fontWeight(.bold)
-                        Text(formatNumber(Double(geschosshoeheMax)!))
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                    }
-                    
-                    Group{ //max. Ausnützung
-                        Text("maximale Ausnützung (m2)")
-                            .fontWeight(.bold)
-                        Text(formatNumber(Double(ausnuetzungMax)!))
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                    }
-                    
-                    Group{ //mögliches Bauvolumen oberirdisch
-                        Text("Bauvolumen oberirdisch (m3)")
-                            .fontWeight(.bold)
-                        
-                        Text(formatNumber(Double(bauvolumenOI)!))
-                            .foregroundColor(Color("resultTextColor")) //zahl erst hier formatieren? test
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                    }
-                    
-                    Group{ //mögliches Bauvolumen unterirdisch
-                        Text("Bauvolumen unterirdisch (m3)")
-                            .fontWeight(.bold)
-                        Text(formatNumber(Double(bauvolumenUI)!))
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Spacer()
-                            .frame(height: groupSpacer)
-                    }
-                    
-                    Group{ //mögliches Bauvolumen unterirdisch
-                        Text("Bauvolumen total (m3)")
-                            .fontWeight(.bold)
-                        Text(formatNumber(Double(bauvolumenMax)!))
-                            .foregroundColor(Color("resultTextColor"))
+                        Group {
+                            Text("Baukosten pro m³ (chf)")
+                                .fontWeight(.bold)
+                            Text(formatNumber2(m3kosten))
+                                .foregroundColor(Color("resultTextColor"))
+                            Slider(value: $m3kosten, in: 900...1800, step: 50)
+                        }
                         
                     }
+                    .padding(25.0)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    dashSpaceDiv()
-                    
-                    Group{ //Kosten pro m3
-                        
-                        Text("Baukosten pro m3 (chf)")
-                            .fontWeight(.bold)
-                        
-                        Text(formatNumber(m3kosten))
-                            .foregroundColor(Color("resultTextColor"))
-                        
-                        Slider(value: $m3kosten, in: 900...1800, step: 50)
-                    }
-                    
-                    
-                    
-                    
-                    
+                    // Add bottom padding so last fields are not obscured by floating result box
+                    Spacer(minLength: 0)
+                        .frame(height: 150)
                 }
-                .padding(25.0)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
-                
-                
-                
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
             .onTapGesture {
-                if (isFocused == true) {
-                    isFocused = false
-                }
+                if isFocused { isFocused = false }
             }
             
-            GroupBox{ //Erstellungskosten
-                
-                VStack(alignment: .leading){
-                    Text("Erstellungskosten (chf)")
-                        .fontWeight(.bold)
-                    
-                    HStack{
-                        Text(formatNumber(Double(erstellungskosten)!))
-                        
-                        Button{
-                            UIPasteboard.general.string = formatNumber(Double(erstellungskosten)!)
-                        } label: {
-                            Image(systemName: "doc.on.doc")
-                                .foregroundColor(Color("textColor"))
+            // Floating result panel overlayed at the bottom
+            VStack(spacing: 12) {
+                GroupBox {
+                    VStack(alignment: .leading) {
+                        Text("Erstellungskosten (chf)")
+                            .fontWeight(.bold)
+                        HStack {
+                            Text(formatNumber2(erstellungskosten))
+                            Button {
+                                UIPasteboard.general.string = formatNumber2(erstellungskosten)
+                            } label: {
+                                Image(systemName: "doc.on.doc")
+                                    .foregroundColor(Color("textColor"))
+                            }
                         }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .groupBoxStyle(resultGroupBox())
                 
+                Button {
+                    resetToDefaults()
+                } label: {
+                    Image(systemName: "return")
+                    Text("alle Eingaben zurücksetzen")
+                }
             }
-            .groupBoxStyle(resultGroupBox())
-            .padding([.leading, .trailing], 20)
-            
-            //reset values
-            
-            Spacer()
-                .frame(height: groupSpacer)
-            
-            Button{
-                resetToDefaults()
-            } label: {
-                Image(systemName: "return")
-                Text("alle Eingaben zurücksetzen")
-            }
-            
+            .padding(.horizontal, 20)
         }
-        
     }
 }
 
